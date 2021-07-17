@@ -6,12 +6,12 @@ export default {
       lang: 'en'
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: ''}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
 
@@ -36,9 +36,30 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n',
   ],
 
+  i18n: {
+    langDir: '~/locales/',
+    strategy: 'prefix',
+    locales: [
+      {code: 'vi', iso: 'vi-VN', file: 'vi.js'},
+      {code: 'en', iso: 'en-US', file: 'en.js'},
+      {code: 'ja', iso: 'ja-JP', file: 'ja.js'},
+    ],
+    defaultLocale: 'vi',
+    vueI18n: {
+      fallbackLocale: 'vi',
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {}
 }
