@@ -1,5 +1,6 @@
 <template>
   <main>
+    <top-bar></top-bar>
     <h1>{{$t('message.success')}}</h1>
     <ul>
       <li
@@ -9,10 +10,59 @@
         <nuxt-link :to="localePath('/auth/sign-in')">
           With {{ page }}
         </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('/auth/sign-in')">
+          With {{ page }}
+        </nuxt-link>
       </li>
     </ul>
   </main>
 </template>
 
-<script lang="ts">
+<script>
+import TopBar from "@/layouts/top-bar";
+export default {
+  components: {TopBar}
+}
 </script>

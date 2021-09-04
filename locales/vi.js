@@ -1,19 +1,25 @@
 export default  {
   message: {
-    require_user_id: 'Hãy nhập email hoặc tên đăng nhập!',
-    require_password: 'Hãy nhập mật khẩu!',
+    error: 'Đã xảy ra lỗi',
+    success: 'Thành công',
+    required: 'Trường này không được bỏ trống',
   },
   text: {
-    error: 'Lỗi!',
-    success: 'Thành công!',
     home: 'Trang chủ',
+    genre: 'Thể loại',
+    most_view: 'Xem nhiều nhất',
+    search: 'Tìm kiếm',
     sign_in: 'Đăng nhập',
     user_id: 'Email hoặc tên đăng nhập',
     account: 'Tài khoản',
     password: 'Mật khẩu',
+    confirm: 'Xác nhận',
     remember: 'Ghi nhớ',
+    display_name: 'Tên hiển thị',
+    user_name: 'Tên đăng nhập',
+    email: 'Email',
     forgot_password: 'Quên mật khẩu?',
-    create_account: 'Tạo tài khoản',
+    sign_up: 'Tạo tài khoản',
     or: 'Hoặc',
   }
 }

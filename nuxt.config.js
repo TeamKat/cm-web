@@ -17,12 +17,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'ant-design-vue/dist/antd.css'
+    'ant-design-vue/dist/antd.css',
+    '@/assets/css/main.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/antd-ui'
+    '@/plugins/antd-ui',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -32,6 +33,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/color-mode'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,11 +48,11 @@ export default {
     locales: [
       {code: 'vi', iso: 'vi-VN', file: 'vi.js'},
       {code: 'en', iso: 'en-US', file: 'en.js'},
-      {code: 'ja', iso: 'ja-JP', file: 'ja.js'},
+      // {code: 'ja', iso: 'ja-JP', file: 'ja.js'},
     ],
-    defaultLocale: 'vi',
+    defaultLocale: process.env.VUE_APP_DEFAULT_LOCALE,
     vueI18n: {
-      fallbackLocale: 'vi',
+      fallbackLocale: process.env.VUE_APP_DEFAULT_LOCALE,
     },
     detectBrowserLanguage: {
       useCookie: true,

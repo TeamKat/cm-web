@@ -1,10 +1,10 @@
 <template>
-  <div class="sign-in-card-wrapper">
-    <a-card class="sign-in-card ">
-      <div class="sign-in-logo-wrapper">
-        <img class="sign-in-logo" src="@/assets/images/logo.png" alt="logo"/>
+  <div class="card-wrapper">
+    <a-card class="card ">
+      <div class="logo-wrapper">
+        <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
       </div>
-      <div class="sign-in-title">{{ $t('text.sign_in') }}</div>
+      <div class="title">{{ $t('text.sign_in') }}</div>
       <a-form layout="vertical" :form="form" @submit="submit">
         <a-form-item :help="errors.user_id">
           <a-input :placeholder="$t('text.user_id')"
@@ -12,21 +12,20 @@
             <a-icon class="form-icon" type="user" slot="prefix"/>
           </a-input>
         </a-form-item>
-
         <a-form-item :help="errors.password">
           <a-input :placeholder="$t('text.password')" type="password"
                    v-decorator="['password', { rules: rules.password }]">
             <a-icon class="form-icon" type="lock" slot="prefix"/>
           </a-input>
         </a-form-item>
-
         <a-form-item>
           <a-checkbox v-decorator="['remember', { valuePropName: 'checked', initialValue: true }]">
             {{ $t('text.remember') }}
           </a-checkbox>
-          <a class="sign-in-forgot" href="">{{ $t('text.forgot_password') }}</a>
-          <a-button class="sign-in-button" type="primary" html-type="submit">{{ $t('text.sign_in') }}</a-button>
-          {{ $t('text.or') + ' ' }}<a class="sign-in-create" href="">{{ $t('text.create_account') }}</a>
+          <a class="forgot-password" href="">{{ $t('text.forgot_password') }}</a>
+          <a-button class="sign-in" type="primary" html-type="submit">{{ $t('text.sign_in') }}</a-button>
+          {{ $t('text.or') + ' ' }}
+          <a class="sign-up" :href="localePath('/auth/sign-up')">{{ $t('text.sign_up') }}</a>
         </a-form-item>
       </a-form>
     </a-card>
@@ -35,35 +34,29 @@
 
 <script>
 import Vue from 'vue'
-import rules from '@/rules/sign-in'
-import {signIn} from '@/api/auth'
+import AuthApi from '@/api/auth'
+import SignInRules from '@/rules/auth/sign-in'
 import {setAuthToken, setRefreshToken} from "@/utils/local-storage";
 
 export default Vue.extend({
   data() {
     return {
-      rules,
+      rules: SignInRules,
       errors: {},
       form: this.$form.createForm(this, {name: 'sign_in'}),
     };
   },
-  // mounted() {
-  //   this.$nextTick(() => {
-  //     // To disabled submit button at the beginning.
-  //     this.form.validateFields();
-  //   });
-  // },
   methods: {
     submit(event) {
       event.preventDefault();
       this.form.validateFields(err => {
         if (!err) {
-          this.login();
+          this.signIn();
         }
       });
     },
-    login() {
-      signIn().then((res) => {
+    signIn() {
+      AuthApi.signIn().then((res) => {
         setAuthToken(res.auth_token);
         setRefreshToken(res.refresh_token);
       });
@@ -72,46 +65,46 @@ export default Vue.extend({
 })
 </script>
 
-<style>
-.sign-in-card-wrapper {
+<style scoped lang="scss">
+.card-wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sign-in-card {
+.card {
   max-width: 400px;
 }
 
-.sign-in-logo-wrapper {
+.logo-wrapper {
   display: flex;
   justify-content: center;
-  padding-top: 16px;
+  margin-top: 16px;
 }
 
-.sign-in-logo {
+.logo {
   height: 24px;
 }
 
-.sign-in-title {
+.title {
   font-size: 24px;
   text-align: center;
   font-weight: 500;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-top: 16px;
 }
 
-.sign-in-forgot {
+.forgot-password {
   float: right;
 }
 
-.sign-in-create {
+.sign-up {
   text-transform: lowercase;
 }
 
-.sign-in-button {
+.sign-in {
   width: 100%;
+  margin: 8px 0;
 }
 
 .form-icon {
@@ -121,10 +114,10 @@ export default Vue.extend({
 /*::v-deep*/
 .ant-form-item {
   margin-bottom: 0;
-  margin-right: 0;
+  padding-bottom: 0;
 }
 
-.ant-form-item-control {
-  line-height: 40px !important;
+.ant-form > .ant-form-item {
+  margin: 12px 0;
 }
 </style>

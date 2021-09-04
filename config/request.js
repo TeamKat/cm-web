@@ -2,6 +2,8 @@ import axios from 'axios'
 import {notification} from 'ant-design-vue';
 import {getAuthToken, removeAuthToken} from "@/utils/local-storage";
 import {getLocale} from '@/utils/cookie';
+import {i18n} from "@/plugins/i18n";
+// import VueI18n from '@/plugins/i18n'
 
 
 // create an axios instance
@@ -31,20 +33,18 @@ service.interceptors.response.use(
     return response.data
   },
   error => {
+    console.log(error)
+    console.log(error.response)
     if (error.response) {
       if (error.response.status === 401) {
         removeAuthToken()
-      } else if (error.response.data && error.response.data.message) {
-        notification.error({
-          key: 'error',
-          message: this.$nuxtI18nHead().i18n.t('text.error'),
-          description: error.response.data.message
-        })
       } else {
+        const description = error.response.data && error.response.data.message ?
+          error.response.data.message : error.response.statusText;
         notification.error({
           key: 'error',
-          message: this.$nuxtI18nHead().i18n.t('text.error'),
-          description: error.response.statusText
+          message: i18n.t('message.error'),
+          description: description
         })
       }
     }

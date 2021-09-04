@@ -1,19 +1,25 @@
-export default  {
+export default {
   message: {
-    require_user_id: 'Input your email or username!',
-    require_password: 'HInput your password!',
+    error: 'An error occurred',
+    success: 'Success',
+    required: 'This field is required',
   },
   text: {
-    error: 'Error!',
-    success: 'Success!',
     home: 'Home',
+    genre: 'Genre',
+    most_view: 'Most view',
+    search: 'Search',
     sign_in: 'Sign in',
+    user_id: 'Email or username',
     account: 'Account',
     password: 'Password',
-    user_id: 'Email or username',
+    confirm: 'Confirm',
     remember: 'Remember me',
+    display_name: 'Display name',
+    user_name: 'Username',
+    email: 'Email',
     forgot_password: 'Forgot password?',
-    create_account: 'Create account',
+    sign_up: 'Create account',
     or: 'Or',
   },
 }
