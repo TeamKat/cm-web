@@ -6,15 +6,15 @@
           <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
         </nuxt-link>
         <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
+        <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
         <a-dropdown :trigger="['click']">
           <a class="menu-item" @click="e => e.preventDefault()">{{ $t('text.genre') }}
             <a-icon type="caret-down"/>
           </a>
           <a-card slot="overlay" @click="onClick" style="margin-top: 12px">
-            <genre-menu/>
+            <genre-menu :genres="genres"/>
           </a-card>
         </a-dropdown>
-        <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
       </div>
       <div class="search-wrapper">
         <a-input-search :placeholder="$t('text.search')"/>
@@ -29,8 +29,13 @@ import GenreMenu from "@/layouts/genre-menu";
 export default Vue.extend({
   name: 'top-bar',
   components: {GenreMenu},
+  data() {
+    return {
+      genres: ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary'],
+    };
+  },
   methods: {
-    onClick({ key }) {
+    onClick({key}) {
       console.log(`Click on item ${key}`);
     }
   },
@@ -69,7 +74,7 @@ export default Vue.extend({
 
   &:hover {
     background: var(--color-theme);
-    color: #fff;
+    color: white;
   }
 }
 

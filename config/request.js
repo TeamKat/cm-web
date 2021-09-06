@@ -2,7 +2,7 @@ import axios from 'axios'
 import {notification} from 'ant-design-vue';
 import {getAuthToken, removeAuthToken} from "@/utils/local-storage";
 import {getLocale} from '@/utils/cookie';
-import {i18n} from "@/plugins/i18n";
+import {i18n} from '@/plugins/i18n';
 // import VueI18n from '@/plugins/i18n'
 
 
