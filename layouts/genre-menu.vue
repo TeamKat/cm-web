@@ -1,7 +1,7 @@
 <template>
   <a-row class="layout">
     <a-col v-for="genre in genres" :key="genre" :xs="{span: 12}" :sm="{span: 8}">
-      <nuxt-link class="genre-item" :to="localePath('/genre/' + genre + '/1')">
+      <nuxt-link class="genre-item" :to="localePath(`/genre/${genre.toLowerCase()}/1`)">
         <a-icon type="caret-right"/>
         {{ genre }}
       </nuxt-link>
@@ -24,6 +24,10 @@ export default Vue.extend({
 .layout {
   padding: 8px 12px;
   max-width: 450px;
+  background: #f5f7fa;
+  border-radius: 4px;
+  margin-top: 16px;
+  opacity: 0.98;
 }
 
 .genre-item {
@@ -34,6 +38,7 @@ export default Vue.extend({
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  font-size: 13px;
 
   &:hover {
     color: var(--color-theme);

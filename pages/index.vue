@@ -1,68 +1,32 @@
 <template>
   <main>
     <top-bar></top-bar>
-    <h1>{{$t('message.success')}}</h1>
-    <ul>
-      <li
-        v-for="page in ['Options API', 'Class API', 'Composition API']"
-        :key="page"
-      >
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-        <nuxt-link :to="localePath('/auth/sign-in')">
-          With {{ page }}
-        </nuxt-link>
-      </li>
-    </ul>
+    <div class="home">
+      <div class="container">
+        <div style="background: gray"></div>
+        <div style="background: blue"></div>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
 import TopBar from "@/layouts/top-bar";
+
 export default {
-  components: {TopBar}
+  components: {TopBar},
 }
 </script>
+<style scoped lang="scss">
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.container {
+  height: 1000px;
+  background: white;
+}
+</style>

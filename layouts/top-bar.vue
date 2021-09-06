@@ -1,26 +1,28 @@
 <template>
-  <header class="header">
-    <div class="container menu">
-      <div>
-        <nuxt-link :to="localePath('/')">
-          <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
-        </nuxt-link>
-        <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
-        <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
-        <a-dropdown :trigger="['click']">
-          <a class="menu-item" @click="e => e.preventDefault()">{{ $t('text.genre') }}
-            <a-icon type="caret-down"/>
-          </a>
-          <a-card slot="overlay" @click="onClick" style="margin-top: 12px">
-            <genre-menu :genres="genres"/>
-          </a-card>
-        </a-dropdown>
+  <div v-bind:style="topBarStyle">
+    <header class="header">
+      <div class="container">
+        <div>
+          <nuxt-link :to="localePath('/')">
+            <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
+          </nuxt-link>
+          <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
+          <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
+          <a-dropdown>
+            <a class="menu-item">{{ $t('text.genre') }}
+              <a-icon type="caret-down"/>
+            </a>
+            <div slot="overlay">
+              <genre-menu :genres="genres"/>
+            </div>
+          </a-dropdown>
+        </div>
+        <div class="search-wrapper">
+          <a-input-search :placeholder="$t('text.search')"/>
+        </div>
       </div>
-      <div class="search-wrapper">
-        <a-input-search :placeholder="$t('text.search')"/>
-      </div>
-    </div>
-  </header>
+    </header>
+  </div>
 </template>
 <script>
 import Vue from 'vue'
@@ -31,14 +33,33 @@ export default Vue.extend({
   components: {GenreMenu},
   data() {
     return {
+      opacity: 1,
+      scrollY: 0,
       genres: ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary'],
     };
   },
-  methods: {
-    onClick({key}) {
-      console.log(`Click on item ${key}`);
+  computed: {
+    topBarStyle: function () {
+      return {'opacity': this.opacity}
     }
   },
+  methods: {
+    handleScroll: function (event) {
+      const newScrollY = window.top.scrollY
+      const newOpacity = (this.opacity + (this.scrollY - newScrollY) / 120)
+      if (this.opacity !== newOpacity) {
+        this.opacity = (newOpacity < 0) ? 0 : (newOpacity > 1 ? 1 : newOpacity)
+        this.scrollY = newScrollY
+      }
+      console.log(newOpacity, this.opacity)
+    }
+  },
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 });
 </script>
 
@@ -51,11 +72,17 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
+  float: left;
+  top: 0;
+  position: fixed;
+  width: 100%;
 }
 
-.menu {
+.container {
   display: flex;
   justify-content: space-between;
+  padding: 8px 16px;
 }
 
 .search-wrapper {
@@ -65,12 +92,14 @@ export default Vue.extend({
 
 .menu-item {
   padding: 3px 12px;
-  margin: 0 8px;
+  margin: 8px;
   display: inline-block;
   text-transform: capitalize;
   transition-duration: unset;
   color: var(--color-primary);
   border-radius: 12px;
+  font-size: 15px;
+
 
   &:hover {
     background: var(--color-theme);
@@ -79,7 +108,7 @@ export default Vue.extend({
 }
 
 .logo {
-  margin: 16px 16px 16px 0;
+  margin-right: 16px;
   height: 28px;
 }
 
