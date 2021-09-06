@@ -88,6 +88,7 @@ export default Vue.extend({
 .search-wrapper {
   display: flex;
   align-items: center;
+  width: 240px;
 }
 
 .menu-item {

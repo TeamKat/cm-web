@@ -27,7 +27,7 @@ export default Vue.extend({
   background: #f5f7fa;
   border-radius: 4px;
   margin-top: 16px;
-  opacity: 0.98;
+  opacity: 0.96;
 }
 
 .genre-item {

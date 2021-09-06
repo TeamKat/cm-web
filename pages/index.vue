@@ -3,8 +3,8 @@
     <top-bar></top-bar>
     <div class="home">
       <div class="container">
-        <div style="background: gray"></div>
-        <div style="background: blue"></div>
+        <div class="content"></div>
+        <div class="suggestion"></div>
       </div>
     </div>
   </main>
@@ -26,7 +26,18 @@ export default {
 }
 
 .container {
-  height: 1000px;
+  display: flex;
   background: white;
+  height: 1000px;
+}
+
+.content {
+  flex-grow: 1;
+  background: red;
+}
+
+.suggestion {
+  width: 256px;
+  background: green;
 }
 </style>
