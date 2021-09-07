@@ -43,7 +43,6 @@ export default {
 .container {
   display: flex;
   background: white;
-  height: 1000px;
   align-items: stretch;
   padding: unset;
 
