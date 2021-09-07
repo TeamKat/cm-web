@@ -3,13 +3,13 @@
 :root {
   --color-primary: #655f4d;
   --color-secondary: #757a7d;
-  --color-theme: #007bff;
+  --color-theme: #eb2328;
 }
 
 .dark-mode {
   --color-primary: #ccc;
   --color-secondary: #999999;
-  --color-theme: #1890ff;
+  --color-theme: #eb2328;
 }
 
 * {

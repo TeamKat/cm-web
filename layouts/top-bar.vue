@@ -41,7 +41,7 @@ export default Vue.extend({
   computed: {
     topBarStyle: function () {
       return {
-        'transition-duration': '0.25s',
+        'transition-duration': '0.3s',
         'opacity': this.opacity
       }
     }
@@ -131,6 +131,9 @@ export default Vue.extend({
 
   &:focus {
     box-shadow: unset;
+  }
+  &:hover {
+    border: 1px solid #eceff5;
   }
 }
 </style>
