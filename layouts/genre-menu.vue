@@ -1,6 +1,6 @@
 <template>
   <a-row class="layout">
-    <a-col v-for="genre in genres" :key="genre" :xs="{span: 12}" :sm="{span: 8}">
+    <a-col v-for="genre in genres" :key="genre" :xs="12" :sm="8">
       <nuxt-link class="genre-item" :to="localePath(`/genre/${genre.toLowerCase()}/1`)">
         <a-icon type="caret-right"/>
         {{ genre }}

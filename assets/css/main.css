@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-  --color-primary: #3f454c;
+  --color-primary: #655f4d;
   --color-secondary: #757a7d;
-  --color-theme: #1890ff;
+  --color-theme: #007bff;
 }
 
 .dark-mode {
@@ -22,6 +22,6 @@ body {
 
 .container {
   width: 1200px;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 20px;
+  padding-left: 20px;
 }

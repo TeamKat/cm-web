@@ -9,7 +9,7 @@
           <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
           <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
           <a-dropdown>
-            <a class="menu-item">{{ $t('text.genre') }}
+            <a class="menu-item-dropdown">{{ $t('text.genre') }}
               <a-icon type="caret-down"/>
             </a>
             <div slot="overlay">
@@ -40,7 +40,10 @@ export default Vue.extend({
   },
   computed: {
     topBarStyle: function () {
-      return {'opacity': this.opacity}
+      return {
+        'transition-duration': '0.25s',
+        'opacity': this.opacity
+      }
     }
   },
   methods: {
@@ -66,7 +69,6 @@ export default Vue.extend({
 <style scoped lang="scss">
 
 .header {
-  z-index: 104;
   -webkit-box-shadow: 0 10px 5px -7px rgba(0, 0, 0, 0.09);
   box-shadow: 0 10px 5px -7px rgba(0, 0, 0, 0.09);
   display: flex;
@@ -82,7 +84,8 @@ export default Vue.extend({
 .container {
   display: flex;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .search-wrapper {
@@ -91,26 +94,33 @@ export default Vue.extend({
   width: 240px;
 }
 
-.menu-item {
-  padding: 3px 12px;
-  margin: 8px;
+.menu-item, .menu-item-dropdown {
+  padding: 5px 10px;
+  margin: 5px;
   display: inline-block;
   text-transform: capitalize;
-  transition-duration: unset;
+  //transition-duration: unset;
+  //border-radius: 15px;
   color: var(--color-primary);
-  border-radius: 12px;
-  font-size: 15px;
-
+  font-weight: 500;
 
   &:hover {
-    background: var(--color-theme);
-    color: white;
+    //background: var(--color-theme);
+    //color: white;
+    color: var(--color-theme);
+
+  }
+}
+
+.menu-item {
+  &:hover {
+    text-decoration: underline;
   }
 }
 
 .logo {
-  margin-right: 16px;
-  height: 28px;
+  margin-right: 20px;
+  height: 30px;
 }
 
 /*::v-deep*/
