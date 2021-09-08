@@ -4,18 +4,14 @@
       <div class="container">
         <div class="content">
           <a-row type="flex">
-            <a-col v-for="item in new Array(12)" :key="item" :xl="4" :md="6" :sm="8" :xs="12">
-              <cm-item/>
+            <a-col v-for="(item, index)  in new Array(12)" :key="index" :xl="4" :md="6" :sm="8" :xs="12">
+              <cm-item :id="index"/>
             </a-col>
           </a-row>
         </div>
         <a-divider type="vertical"/>
         <div class="suggestion">
-          <suggest-item />
-          <suggest-item />
-          <suggest-item />
-          <suggest-item />
-          <suggest-item />
+          <suggest-item  v-for="(item, index)  in new Array(10)" :key="index" :id="index"/>
         </div>
       </div>
     </div>

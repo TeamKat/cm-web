@@ -1,7 +1,9 @@
 <template>
   <nuxt-link class="item" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+
     <div class="image">
-      <img src="https://image2.hdonline.cc/2019/18732/el-dragn-return-of-a-warrior_w185.jpg">
+      <img
+        :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id">
     </div>
     <div class="data">
       <div>
@@ -30,7 +32,15 @@
 
 <script>
 export default {
-  name: "suggest-item"
+  name: "suggest-item",
+  props: {
+    id: Number
+  },
+  methods: {
+    getRandomArbitrary(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+  }
 }
 </script>
 
@@ -41,6 +51,7 @@ export default {
   display: inline-flex;
   margin: 10px;
   background: #f5f7fa;
+  border-radius: 5px;
 
   &:hover {
     background: #eceff5;
@@ -68,13 +79,19 @@ export default {
   }
 
   .image {
+    background: #eceff5;
     overflow: hidden;
-    width: 80px;
+    width: 70px;
+    min-width: 70px;
+    border-radius: 5px;
 
     img {
       height: 100%;
+      width: 100%;
+      object-fit: cover;
       transition: -webkit-transform .3s;
       transition: transform .3s;
+      border-radius: 5px;
     }
   }
 
