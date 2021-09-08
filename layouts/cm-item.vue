@@ -97,6 +97,7 @@ export default {
 
     .read {
       opacity: 0;
+      display: flex;
       transition: opacity 0.3s;
       transition: -webkit-opacity 0.3s;
       position: absolute;
@@ -105,7 +106,6 @@ export default {
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.6);
-      display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 5px;
