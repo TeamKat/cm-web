@@ -31,6 +31,7 @@ export default {
     return {
       settings: {
         "arrows": false,
+        "infinity": true,
         "slidesToShow": 6,
         "swipeToSlide": true,
         "autoplay": true,
