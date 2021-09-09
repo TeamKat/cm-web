@@ -5,7 +5,7 @@
         <a-row type="flex">
           <a-col :lg="18" :md="16" :xs="24">
             <nuxt-link :to="localePath('/')">
-              <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
+              <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
             </nuxt-link>
             <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
             <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
@@ -89,10 +89,11 @@ export default Vue.extend({
 
 .container {
   width: 100%;
+  padding: 0 10px;
 }
 
 .search-wrapper {
-  padding: 5px 10px;
+  padding: 10px;
 }
 
 .menu-item, .menu-item-dropdown {
@@ -122,8 +123,7 @@ export default Vue.extend({
 
 .logo {
   margin-right: 20px;
-  margin-left: 10px;
-  height: 30px;
+  height: 64px;
 }
 
 /*::v-deep*/
@@ -139,5 +139,10 @@ export default Vue.extend({
   &:hover {
     border: 1px solid #eceff5;
   }
+}
+
+//::v-deep
+.ant-col {
+  align-self: center;
 }
 </style>
