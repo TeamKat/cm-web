@@ -1,10 +1,10 @@
 <template>
   <div>
     <header>
-      <div class="title">Featured</div>
+      <div class="title">{{ title }}</div>
       <div class="control">
-        <div class="total">84</div>
-        <div class="see-all">See all</div>
+        <div class="total">{{ total }}</div>
+        <nuxt-link class="see-all" :to="localePath(listUrl)">{{ $t('text.see_all') }}</nuxt-link>
         <div class="previous" @click="previous">
           <a-icon type="caret-left"/>
         </div>
@@ -14,7 +14,7 @@
       </div>
     </header>
     <VueSlickCarousel v-bind="settings" ref="carousel">
-      <cm-item v-for="(item, index)  in new Array(8)" :key="index" :id="index"/>
+      <cm-item v-for="(item, index)  in items" :key="index" :id="index"/>
     </VueSlickCarousel>
   </div>
 </template>
@@ -27,6 +27,12 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 export default {
   name: "cm-slider",
   components: {CmItem, VueSlickCarousel},
+  props: {
+    title: String,
+    total: Number,
+    listUrl: String,
+    items: Array,
+  },
   data() {
     return {
       settings: {
@@ -82,6 +88,7 @@ header {
   border-left: solid 4px var(--color-theme);
   line-height: 1.25;
   align-self: center;
+  text-transform: capitalize;
 }
 
 .control {

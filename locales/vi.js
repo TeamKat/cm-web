@@ -21,5 +21,9 @@ export default  {
     forgot_password: 'Quên mật khẩu?',
     sign_up: 'Tạo tài khoản',
     or: 'Hoặc',
+    see_all: 'Xem thêm',
+    featured: 'Đặc sắc',
+    list: 'Danh sách',
+    recommend: 'Gợi ý',
   }
 }

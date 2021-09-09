@@ -61,7 +61,6 @@ export default Vue.extend({
         this.scrollY = newScrollY
       }
       this.display = this.opacity !== 0
-      console.log(newOpacity, this.opacity)
     }
   },
   beforeMount() {
@@ -105,6 +104,7 @@ export default Vue.extend({
   //border-radius: 15px;
   color: var(--color-primary);
   font-weight: 500;
+  font-size: 16px;
 
   &:hover {
     //background: var(--color-theme);

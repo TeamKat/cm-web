@@ -21,5 +21,9 @@ export default {
     forgot_password: 'Forgot password?',
     sign_up: 'Create account',
     or: 'Or',
+    see_all: 'See all',
+    featured: 'Featured',
+    list: 'List all',
+    recommend: 'Recommend',
   },
 }

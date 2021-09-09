@@ -2,13 +2,15 @@
   <main>
     <div class="home">
       <div class="container">
-        <a-row>
-          <a-col :lg="18" :md="16" :xs="24">
-            <cm-slider/>
-            <cm-list/>
+        <a-row :gutter="10">
+          <a-col class="content" :lg="18" :md="16" :xs="24">
+            <cm-slider :title="$t('text.featured')" :total="84" :list-url="'/featured'" :items="new Array(8)"/>
+            <divider/>
+            <cm-list :title="$t('text.list')" :total="84" :items="new Array(8)"/>
           </a-col>
-          <a-col :lg="6" :md="8" :xs="24">
-            <sg-list/>
+          <a-col class="suggest" :lg="6" :md="8" :xs="24">
+            <divider class="suggest-divider"/>
+            <sg-list :title="$t('text.recommend')" :items="new Array(8)"/>
           </a-col>
         </a-row>
       </div>
@@ -22,14 +24,15 @@ import TopBar from "@/layouts/top-bar";
 import SgList from "@/layouts/sg-list";
 import CmSlider from "@/layouts/cm-slider";
 import CmList from "@/layouts/cm-list";
+import Divider from "@/layouts/divider";
 
 export default {
-  components: {CmSlider, CmList, SgList, TopBar},
+  components: {Divider, CmSlider, CmList, SgList, TopBar},
 }
 </script>
 <style scoped lang="scss">
 .home {
-  margin-top: 62px;
+  margin-top: 64px;
 }
 
 .container {
@@ -38,8 +41,29 @@ export default {
 }
 
 .content {
-  flex-grow: 1;
-  margin: 10px;
+margin-right: -1px;
+border-right: solid 1px #e8e8e8;
+}
+
+.suggest {
+  border-left: solid 1px #e8e8e8;
+}
+
+.suggest-divider {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin-right: unset;
+    border-right: unset;
+  }
+  .suggest {
+    border-left: unset;
+  }
+  .suggest-divider {
+    display: block;
+  }
 }
 
 </style>
