@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "suggest-item",
+  name: "sg-item",
   props: {
     id: Number
   },

@@ -4,8 +4,7 @@
       <div class="image-wrapper">
         <div class="image">
           <img
-            :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id"
-            alt="Countdown: Inspiration4 Mission to Space">
+            :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id">
         </div>
       </div>
       <div class="read">
