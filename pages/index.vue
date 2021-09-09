@@ -54,6 +54,9 @@ border-right: solid 1px #e8e8e8;
 }
 
 @media screen and (max-width: 768px) {
+  .home {
+    margin-top: 116px;
+  }
   .content {
     margin-right: unset;
     border-right: unset;

@@ -2,12 +2,12 @@
   <div v-bind:style="topBarStyle">
     <header class="header">
       <div class="container">
-        <a-row type="flex">
-          <a-col :lg="18" :md="16" :xs="24">
-            <nuxt-link :to="localePath('/')">
+        <a-row>
+          <a-col :lg="18" :md="16" :xs="24" class="menu-pc">
+            <a href="/">
               <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
-            </nuxt-link>
-            <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
+            </a>
+            <a class="menu-item" href="/">{{ $t('text.home') }}</a>
             <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
             <a-dropdown>
               <a class="menu-item-dropdown">{{ $t('text.genre') }}
@@ -18,7 +18,16 @@
               </div>
             </a-dropdown>
           </a-col>
-          <a-col :lg="6" :md="8" :xs="24">
+          <a-col :lg="18" :md="16" :xs="24" class="menu-sm">
+            <div class="nav">
+              <a-icon type="menu"/>
+            </div>
+            <a href="/">
+              <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
+            </a>
+            <div class="user"></div>
+          </a-col>
+          <a-col :lg="6" :md="8" :xs="24" class="search-col">
             <div class="search-wrapper">
               <a-input-search :placeholder="$t('text.search')"/>
             </div>
@@ -119,10 +128,13 @@ export default Vue.extend({
   &:hover {
     text-decoration: underline;
   }
+
+  &:first-child {
+    margin-left: 20px;
+  }
 }
 
 .logo {
-  margin-right: 20px;
   height: 64px;
 }
 
@@ -141,8 +153,32 @@ export default Vue.extend({
   }
 }
 
-//::v-deep
-.ant-col {
+.search-col {
   align-self: center;
+}
+
+.menu-sm {
+  display: none;
+  text-align: center;
+  justify-content: space-between;
+
+  .nav {
+    font-size: 30px;
+    align-self: center;
+    padding: 10px;
+  }
+
+  .user {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-pc {
+    display: none;
+  }
+  .menu-sm {
+    display: flex;
+  }
 }
 </style>
