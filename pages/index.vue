@@ -2,30 +2,40 @@
   <main>
     <div class="home">
       <div class="container">
-        <div class="content">
-          <VueSlickCarousel v-bind="settings" style="width: 100%; max-width: 1000px">
-            <cm-item :id="1"/>
-            <cm-item :id="2"/>
-            <cm-item :id="3"/>
-            <cm-item :id="4"/>
-            <cm-item :id="5"/>
-            <cm-item :id="6"/>
-            <cm-item :id="7"/>
-            <cm-item :id="8"/>
-            <cm-item :id="6"/>
-            <cm-item :id="7"/>
-            <cm-item :id="8"/>
-          </VueSlickCarousel>
-          <a-row type="flex">
-            <a-col v-for="(item, index)  in new Array(12)" :key="index" :xl="4" :md="6" :sm="8" :xs="12">
-              <cm-item :id="index"/>
-            </a-col>
-          </a-row>
-        </div>
-        <a-divider type="vertical"/>
-        <div class="suggestion">
-          <suggest-item v-for="(item, index)  in new Array(10)" :key="index" :id="index"/>
-        </div>
+        <a-row>
+          <a-col :lg="18" :md="16" :xs="24">
+            <VueSlickCarousel v-bind="settings" class="carousel">
+              <cm-item :id="1"/>
+              <cm-item :id="2"/>
+              <cm-item :id="3"/>
+              <cm-item :id="4"/>
+              <cm-item :id="5"/>
+              <cm-item :id="6"/>
+              <cm-item :id="7"/>
+              <cm-item :id="8"/>
+              <cm-item :id="6"/>
+              <cm-item :id="7"/>
+              <cm-item :id="8"/>
+            </VueSlickCarousel>
+            <a-row type="flex">
+              <a-col v-for="(item, index)  in new Array(1)" :key="index" :xl="4" :sm="6" :xs="12">
+                <cm-item :id="index"/>
+              </a-col>
+            </a-row>
+          </a-col>
+          <a-col :lg="6" :md="8" :xs="24">
+            <div class="suggestion">
+              <a-row>
+                <a-col v-for="(item, index)  in new Array(1)" :key="index" :md="24" :sm="12" :xs="24">
+                  <suggest-item :id="index"/>
+                </a-col>
+                <a-col v-for="(item, index)  in new Array(1)" :key="index" :md="24" :sm="12" :xs="24">
+                  <suggest-item :id="index"/>
+                </a-col>
+              </a-row>
+            </div>
+          </a-col>
+        </a-row>
       </div>
     </div>
     <top-bar class="top-bar"></top-bar>
@@ -47,45 +57,25 @@ export default {
         "arrows": false,
         "infinite": true,
         "slidesToShow": 6,
-        "autoplay": true,
-        "slidesToScroll": 1,
         "swipeToSlide": true,
+        "autoplay": true,
         "autoplaySpeed": 5000,
+        "waitForAnimate": false,
+        // "variableWidth": true,
         "responsive": [
           {
-            "breakpoint": 1024,
-            "settings": {
-              "slidesToShow": 6,
-            }
-          },
-          {
-            "breakpoint": 992,
+            "breakpoint": 1200,
             "settings": {
               "slidesToShow": 4,
-
             }
           },
           {
-            "breakpoint": 992,
-            "settings": {
-              "slidesToShow": 4,
-
-            }
-          },
-          {
-            "breakpoint": 768,
-            "settings": {
-              "slidesToShow": 3,
-
-            }
-          },
-          {
-            "breakpoint": 0,
+            "breakpoint": 576,
             "settings": {
               "slidesToShow": 2,
 
             }
-          }
+          },
         ]
       }
     }
@@ -93,23 +83,14 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
 .home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 60px;
 }
 
 .container {
-  display: flex;
   background: white;
-  align-items: stretch;
-  padding: unset;
-
-  .ant-divider-vertical {
-    height: unset;
-    margin: unset;
-  }
+  margin: auto;
 }
 
 .content {
@@ -117,9 +98,4 @@ export default {
   margin: 10px;
 }
 
-.suggestion {
-  min-width: 260px;
-  width: 260px;
-  margin: 10px;
-}
 </style>

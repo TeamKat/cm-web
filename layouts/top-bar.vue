@@ -2,24 +2,28 @@
   <div v-bind:style="topBarStyle">
     <header class="header">
       <div class="container">
-        <div>
-          <nuxt-link :to="localePath('/')">
-            <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
-          </nuxt-link>
-          <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
-          <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
-          <a-dropdown>
-            <a class="menu-item-dropdown">{{ $t('text.genre') }}
-              <a-icon type="caret-down"/>
-            </a>
-            <div slot="overlay">
-              <genre-menu :genres="genres"/>
+        <a-row type="flex">
+          <a-col :lg="18" :md="16" :xs="24">
+            <nuxt-link :to="localePath('/')">
+              <img class="logo" src="@/assets/images/logo.png" alt="logo"/>
+            </nuxt-link>
+            <nuxt-link class="menu-item" :to="localePath('/')">{{ $t('text.home') }}</nuxt-link>
+            <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
+            <a-dropdown>
+              <a class="menu-item-dropdown">{{ $t('text.genre') }}
+                <a-icon type="caret-down"/>
+              </a>
+              <div slot="overlay">
+                <genre-menu :genres="genres"/>
+              </div>
+            </a-dropdown>
+          </a-col>
+          <a-col :lg="6" :md="8" :xs="24">
+            <div class="search-wrapper">
+              <a-input-search :placeholder="$t('text.search')"/>
             </div>
-          </a-dropdown>
-        </div>
-        <div class="search-wrapper">
-          <a-input-search :placeholder="$t('text.search')"/>
-        </div>
+          </a-col>
+        </a-row>
       </div>
     </header>
   </div>
@@ -35,14 +39,16 @@ export default Vue.extend({
     return {
       opacity: 1,
       scrollY: 0,
-      genres: ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary'],
+      display: true,
+      genres: ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary'],
     };
   },
   computed: {
     topBarStyle: function () {
       return {
         'transition-duration': '0.3s',
-        'opacity': this.opacity
+        'opacity': this.opacity,
+        'display': this.display ? 'flex' : 'none'
       }
     }
   },
@@ -54,6 +60,7 @@ export default Vue.extend({
         this.opacity = (newOpacity < 0) ? 0 : (newOpacity > 1 ? 1 : newOpacity)
         this.scrollY = newScrollY
       }
+      this.display = this.opacity !== 0
       console.log(newOpacity, this.opacity)
     }
   },
@@ -82,16 +89,11 @@ export default Vue.extend({
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 100%;
 }
 
 .search-wrapper {
-  display: flex;
-  align-items: center;
-  width: 240px;
+  padding: 5px 10px;
 }
 
 .menu-item, .menu-item-dropdown {
@@ -120,6 +122,7 @@ export default Vue.extend({
 
 .logo {
   margin-right: 20px;
+  margin-left: 10px;
   height: 30px;
 }
 
@@ -132,6 +135,7 @@ export default Vue.extend({
   &:focus {
     box-shadow: unset;
   }
+
   &:hover {
     border: 1px solid #eceff5;
   }

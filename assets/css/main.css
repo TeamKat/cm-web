@@ -18,10 +18,10 @@
 
 body {
   background: #f5f7fa;
+  height: unset;
 }
 
 .container {
-  width: 1200px;
-  padding-right: 20px;
-  padding-left: 20px;
+  max-width: 1200px;
+  padding: 10px;
 }

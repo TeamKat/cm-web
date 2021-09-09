@@ -1,33 +1,38 @@
 <template>
-  <nuxt-link class="item" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
-
-    <div class="image">
-      <img
-        :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id">
+  <div class="layout">
+    <div class="item">
+      <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+        <div class="content">
+          <div class="image">
+            <img
+              :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id">
+          </div>
+          <div class="data">
+            <div>
+              <nuxt-link class="name" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+                El Dragón: Return of a Warrior
+              </nuxt-link>
+              <div class="author">
+                <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Lapham</nuxt-link>
+                ,
+                <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Johnson</nuxt-link>
+              </div>
+            </div>
+            <div class="info">
+              <div class="view">
+                <a-icon type="read" theme="filled"/>
+                12.345
+              </div>
+              <div class="rate">
+                <a-icon type="star" theme="filled"/>
+                7.3
+              </div>
+            </div>
+          </div>
+        </div>
+      </nuxt-link>
     </div>
-    <div class="data">
-      <div>
-        <nuxt-link class="name" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
-          El Dragón: Return of a Warrior
-        </nuxt-link>
-        <div class="author">
-          <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Lapham</nuxt-link>
-          ,
-          <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Johnson</nuxt-link>
-        </div>
-      </div>
-      <div class="info">
-        <div class="view">
-          <a-icon type="read" theme="filled"/>
-          12.345
-        </div>
-        <div class="rate">
-          <a-icon type="star" theme="filled"/>
-          7.3
-        </div>
-      </div>
-    </div>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
@@ -45,13 +50,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.layout {
+  padding: 10px;
+}
 
 .item {
   height: 100px;
-  display: inline-flex;
-  margin: 10px;
   background: #f5f7fa;
   border-radius: 5px;
+  width: 100%;
 
   &:hover {
     background: #eceff5;
@@ -76,6 +83,12 @@ export default {
         color: #ffd600;
       }
     }
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
   }
 
   .image {
