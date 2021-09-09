@@ -41,8 +41,8 @@ export default {
 }
 
 .content {
-margin-right: -1px;
-border-right: solid 1px #e8e8e8;
+  margin-right: -1px;
+  border-right: solid 1px #e8e8e8;
 }
 
 .suggest {

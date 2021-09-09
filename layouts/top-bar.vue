@@ -7,7 +7,7 @@
             <a href="/">
               <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
             </a>
-            <a class="menu-item" href="/">{{ $t('text.home') }}</a>
+            <a class="menu-item-first" href="/">{{ $t('text.home') }}</a>
             <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
             <a-dropdown>
               <a class="menu-item-dropdown">{{ $t('text.genre') }}
@@ -105,7 +105,7 @@ export default Vue.extend({
   padding: 10px;
 }
 
-.menu-item, .menu-item-dropdown {
+.menu-item, .menu-item-first, .menu-item-dropdown {
   padding: 5px 10px;
   margin: 5px;
   display: inline-block;
@@ -124,14 +124,14 @@ export default Vue.extend({
   }
 }
 
-.menu-item {
+.menu-item, .menu-item-first {
   &:hover {
     text-decoration: underline;
   }
+}
 
-  &:first-child {
-    margin-left: 20px;
-  }
+.menu-item-first {
+  margin-left: 20px;
 }
 
 .logo {

@@ -24,7 +24,8 @@ export default Vue.extend({
 .layout {
   padding: 8px 12px;
   max-width: 450px;
-  background: #f5f7fa;
+  background: rgba(255, 255, 255, 0.99);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   margin-top: 16px;
   opacity: 0.96;
