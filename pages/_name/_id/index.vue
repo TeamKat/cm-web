@@ -5,8 +5,10 @@
         <a-row :gutter="10">
           <a-col class="content" :lg="18" :md="16" :xs="24">
             <div class="info">
-              <div class="image">
-                <img src="https://placeimg.com/872/227/any?1">
+              <div class="image-wrapper">
+                <div class="image">
+                  <img src="https://placeimg.com/872/227/any?1">
+                </div>
               </div>
               <div class="detail">
                 <div class="name">Naruto</div>
@@ -53,15 +55,20 @@ export default {
 .info {
   display: flex;
 
-  .image {
+  .image-wrapper {
     padding: 10px;
 
-    img {
-      width: 140px;
-      height: 196px;
-      object-fit: cover;
-      border-radius: 5px;
+    .image {
+      background: #eceff5;
+
+      img {
+        width: 140px;
+        height: 196px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
     }
+
   }
 
   .detail {
