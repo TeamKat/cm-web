@@ -61,7 +61,6 @@ export default {
         "autoplay": true,
         "autoplaySpeed": 5000,
         "waitForAnimate": false,
-        // "variableWidth": true,
         "responsive": [
           {
             "breakpoint": 1200,
@@ -77,15 +76,14 @@ export default {
             }
           },
         ]
-      }
+      },
     }
   },
 }
 </script>
 <style scoped lang="scss">
-
 .home {
-  margin-top: 60px;
+  margin-top: 62px;
 }
 
 .container {

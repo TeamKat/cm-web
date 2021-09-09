@@ -1,10 +1,11 @@
 <template>
   <div class="item">
-    <nuxt-link class="poster" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+    <a class="poster" draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
       <div class="image-wrapper">
         <div class="image">
           <img
-            :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id" alt="Countdown: Inspiration4 Mission to Space">
+            :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id"
+            alt="Countdown: Inspiration4 Mission to Space">
         </div>
       </div>
       <div class="read">
@@ -18,18 +19,17 @@
         <a-icon type="star" theme="filled"/>
         7.3
       </div>
-    </nuxt-link>
-    <nuxt-link class="name" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+    </a>
+    <a class="name" draggable="false" :href="localePath(`/genre/abc/1`)">
       El Dragón: Return of a Warrior
-    </nuxt-link>
+    </a>
     <div class="author">
-      <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+      <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
         Lapham
-      </nuxt-link>
-      ,
-      <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+      </a>,
+      <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
         Johnson
-      </nuxt-link>
+      </a>
     </div>
   </div>
 </template>
@@ -37,13 +37,20 @@
 <script>
 export default {
   name: "cm-item",
+  el: '#poster',
   props: {
     id: Number
+  },
+  data() {
+    return {
+      drag: false,
+      click: false
+    }
   },
   methods: {
     getRandomArbitrary(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
-    }
+    },
   }
 }
 </script>

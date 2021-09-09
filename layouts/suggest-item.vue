@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="item">
-      <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+      <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
         <div class="content">
           <div class="image">
             <img
@@ -9,13 +9,13 @@
           </div>
           <div class="data">
             <div>
-              <nuxt-link class="name" :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+              <a class="name" draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
                 El Dragón: Return of a Warrior
-              </nuxt-link>
+              </a>
               <div class="author">
-                <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Lapham</nuxt-link>
+                <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Lapham</a>
                 ,
-                <nuxt-link :to="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Johnson</nuxt-link>
+                <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Johnson</a>
               </div>
             </div>
             <div class="info">
@@ -30,7 +30,7 @@
             </div>
           </div>
         </div>
-      </nuxt-link>
+      </a>
     </div>
   </div>
 </template>
