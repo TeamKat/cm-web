@@ -36,7 +36,6 @@
 <script>
 export default {
   name: "cm-item",
-  el: '#poster',
   props: {
     id: Number
   },
