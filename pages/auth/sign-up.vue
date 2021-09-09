@@ -2,7 +2,9 @@
   <div class="card-wrapper">
     <a-card class="card">
       <div class="logo-wrapper">
-        <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
+        <a href="/">
+          <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
+        </a>
       </div>
       <div class="title">{{ $t('text.sign_up') }}</div>
       <a-form layout="vertical" :form="form" @submit="submit">
