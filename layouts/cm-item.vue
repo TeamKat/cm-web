@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <a class="poster" draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+    <a class="poster" draggable="false" :href="'/naruto/123'">
       <div class="image-wrapper">
         <div class="image">
           <img
@@ -19,14 +19,14 @@
         7.3
       </div>
     </a>
-    <a class="name" draggable="false" :href="localePath(`/genre/abc/1`)">
+    <a class="name" draggable="false" :href="'/naruto/123'">
       El Dragón: Return of a Warrior
     </a>
     <div class="author">
-      <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+      <a draggable="false" :href="'/authors/lapham/123'">
         Lapham
       </a>,
-      <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+      <a draggable="false" :href="'/authors/johnson/234'">
         Johnson
       </a>
     </div>
