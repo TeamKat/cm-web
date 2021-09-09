@@ -104,14 +104,13 @@ export default Vue.extend({
 }
 
 .logo {
-  height: 24px;
+  height: 64px;
 }
 
 .title {
   font-size: 24px;
   text-align: center;
   font-weight: 500;
-  margin-top: 16px;
 }
 
 .sign-in {
