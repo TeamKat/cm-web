@@ -33,39 +33,45 @@ export default {
 <style scoped lang="scss">
 .home {
   margin-top: 64px;
-}
 
-.container {
-  background: white;
-  margin: auto;
-}
+  .container {
+    background: white;
+    margin: auto;
 
-.content {
-  margin-right: -1px;
-  border-right: solid 1px #e8e8e8;
-}
+    .content {
+      margin-right: -1px;
+      border-right: solid 1px #e8e8e8;
+    }
 
-.suggest {
-  border-left: solid 1px #e8e8e8;
-}
+    .suggest {
+      border-left: solid 1px #e8e8e8;
 
-.suggest-divider {
-  display: none;
+      .suggest-divider {
+        display: none;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
   .home {
     margin-top: 116px;
-  }
-  .content {
-    margin-right: unset;
-    border-right: unset;
-  }
-  .suggest {
-    border-left: unset;
-  }
-  .suggest-divider {
-    display: block;
+
+    .container {
+
+      .content {
+        margin-right: unset;
+        border-right: unset;
+      }
+
+      .suggest {
+        border-left: unset;
+
+        .suggest-divider {
+          display: block;
+        }
+      }
+    }
   }
 }
 

@@ -4,10 +4,11 @@
       <div class="container">
         <a-row :gutter="10">
           <a-col class="content" :lg="18" :md="16" :xs="24">
-            <div class="info">
-              <poster :src="'https://placeimg.com/872/227/any?1'"/>
+            <div class="info-layout">
+              <poster
+                :src="'https://s199.imacdn.com/tt24/2020/03/11/c4a87a86026745b4_9772640cc500cbc1_27918158389142881.jpg'"/>
               <div class="detail">
-                <div class="name">Naruto</div>
+                <div class="name">One Punch Man, Cú Đấm Hủy Diệt</div>
                 <div class="author">
                   <div class="info-block">
                     <div class="title">Author:</div>
@@ -22,8 +23,20 @@
                     <div class="title">View:</div>
                     12,505
                   </div>
+                  <div class="info-block">
+                    <div class="title">News:</div>
+                    <a :href="'/authors/johnson/234'">
+                      Chapter 200
+                    </a>
+                  </div>
                 </div>
               </div>
+            </div>
+            <divider/>
+            <div class="description-layout">
+              <header>
+                <div class="title">{{ title }}</div>
+              </header>
             </div>
           </a-col>
           <a-col class="suggest" :lg="6" :md="8" :xs="24">
@@ -52,87 +65,99 @@ export default {
 <style scoped lang="scss">
 .home {
   margin-top: 64px;
-}
 
-.container {
-  background: white;
-  margin: auto;
-}
+  .container {
+    background: white;
+    margin: auto;
 
-.content {
-  margin-right: -1px;
-  border-right: solid 1px #e8e8e8;
-}
+    .content {
+      margin-right: -1px;
+      border-right: solid 1px #e8e8e8;
 
+      .info-layout {
+        display: flex;
 
-.info {
-  display: flex;
+        .poster {
+          padding: 10px;
+          width: 160px;
+        }
 
-  .poster {
-    padding: 10px;
-    width: 140px;
-  }
+        .detail {
+          padding: 10px;
 
-  .detail {
-    padding: 10px;
+          .name {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-primary);
+            line-height: 1;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+          }
 
-    .name {
-      font-size: 30px;
-      font-weight: 500;
-      color: var(--color-primary);
-      line-height: 1;
-      text-transform: capitalize;
-      margin-bottom: 10px;
-    }
+          .info-block {
+            font-size: 13px;
+            margin-top: 5px;
+            //font-weight: 500;
+            color: var(--color-primary);
 
-    .info-block {
-      font-size: 13px;
-      line-height: 20px;
-      padding: 5px 0;
-      color: var(--color-primary);
-      //font-weight: 500;
+            .title {
+              display: inline-block;
+              font-weight: bolder;
+              margin-right: 5px;
+              //color: var(--color-primary);
+            }
 
-      .title {
-        display: inline-block;
-        font-weight: bolder;
-        margin-right: 5px;
+            a {
+              text-decoration: underline;
+              display: inline-block;
+              color: var(--color-primary);
+
+              &:hover {
+                color: var(--color-theme);
+              }
+            }
+          }
+        }
+      }
+
+      .description-layout {
+
       }
     }
 
-    .author a {
-      text-decoration: underline;
-      display: inline-block;
-      color: var(--color-primary);
+    .suggest {
+      border-left: solid 1px #e8e8e8;
 
-      &:hover {
-        color: var(--color-theme);
+      .suggest-divider {
+        display: none;
       }
     }
   }
-}
-
-
-.suggest {
-  border-left: solid 1px #e8e8e8;
-}
-
-.suggest-divider {
-  display: none;
 }
 
 @media screen and (max-width: 768px) {
   .home {
     margin-top: 116px;
-  }
-  .content {
-    margin-right: unset;
-    border-right: unset;
-  }
-  .suggest {
-    border-left: unset;
-  }
-  .suggest-divider {
-    display: block;
+
+    .container {
+
+      .content {
+        margin-right: unset;
+        border-right: unset;
+
+        .info .poster {
+          width: 120px;
+        }
+      }
+
+      .suggest {
+        border-left: unset;
+
+        .suggest-divider {
+          display: block;
+        }
+      }
+    }
   }
 }
 

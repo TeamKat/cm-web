@@ -1,13 +1,11 @@
 <template>
   <div>
-  <header>
-    <div class="title">{{ title }}</div>
-  </header>
-  <a-row>
-    <a-col v-for="(item, index)  in new Array(10)" :key="index" :md="24" :sm="12" :xs="24">
-      <sg-item :id="index"/>
-    </a-col>
-  </a-row>
+    <cm-title :title="title"/>
+    <a-row>
+      <a-col v-for="(item, index)  in new Array(10)" :key="index" :md="24" :sm="12" :xs="24">
+        <sg-item :id="index"/>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
@@ -15,10 +13,11 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import SgItem from "@/layouts/sg-item";
+import CmTitle from "@/components/cm-title";
 
 export default {
   name: "sg-list",
-  components: {SgItem, VueSlickCarousel},
+  components: {CmTitle, SgItem, VueSlickCarousel},
   props: {
     title: String,
     items: Array,
