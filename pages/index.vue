@@ -10,7 +10,7 @@
           </a-col>
           <a-col class="suggest" :lg="6" :md="8" :xs="24">
             <divider class="suggest-divider"/>
-            <sg-list :title="$t('text.recommend')" :items="new Array(8)"/>
+            <sg-list :items="new Array(8)"/>
           </a-col>
         </a-row>
       </div>

@@ -25,5 +25,8 @@ export default {
     featured: 'Featured',
     list: 'List all',
     recommend: 'Recommend',
+    description: 'Description',
+    all_chapters: 'All Chapters',
+    similar: 'Similar titles',
   },
 }

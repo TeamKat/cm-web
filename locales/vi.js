@@ -25,5 +25,8 @@ export default  {
     featured: 'Đặc sắc',
     list: 'Danh sách',
     recommend: 'Gợi ý',
+    description: 'Nội dung',
+    all_chapters: 'Tất cả chương',
+    similar: 'Tương tự',
   }
 }

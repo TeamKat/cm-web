@@ -34,10 +34,22 @@
             </div>
             <divider/>
             <div class="description-layout">
-              <header>
-                <div class="title">{{ title }}</div>
-              </header>
+              <cm-title :title="$t('text.description')"/>
+              <div class="description">
+                Onepunch-Man là một Manga thể loại siêu anh hùng với đặc trưng phồng tôm đấm phát chết luôn… Lol!!! Nhân
+                vật chính trong Onepunch-man là Saitama, một con người mà nhìn đâu cũng thấy “tầm thường”, từ khuôn mặt
+                vô hồn, cái đầu trọc lóc, cho tới thể hình long tong. Tuy nhiên, con người nhìn thì tầm thường này lại
+                chuyên giải quyết những vấn đề hết sức bất thường. Anh thực chất chính là một siêu anh hùng luôn tìm
+                kiếm cho mình một đối thủ mạnh. Vấn đề là, cứ mỗi lần bắt gặp một đối thủ tiềm năng, thì đối thủ nào
+                cũng như đối thủ nào, chỉ ăn một đấm của anh là… chết luôn. Liệu rằng Onepunch-Man Saitaman có thể tìm
+                được cho mình một kẻ ác dữ dằn đủ sức đấu với anh? Hãy theo bước Saitama trên con đường một đấm tìm đối
+                cực kỳ hài hước của anh!!
+              </div>
             </div>
+            <divider/>
+            <cp-list/>
+            <divider/>
+            <cm-slider :title="$t('text.similar')" :items="new Array(8)"/>
           </a-col>
           <a-col class="suggest" :lg="6" :md="8" :xs="24">
             <divider class="suggest-divider"/>
@@ -57,9 +69,11 @@ import CmSlider from "@/layouts/cm-slider";
 import CmList from "@/layouts/cm-list";
 import Divider from "@/components/divider";
 import Poster from "@/components/poster";
+import CmTitle from "@/components/cm-title";
+import CpList from "@/layouts/cp-list";
 
 export default {
-  components: {Poster, Divider, CmSlider, CmList, SgList, TopBar},
+  components: {CpList, CmTitle, Poster, Divider, CmSlider, CmList, SgList, TopBar},
 }
 </script>
 <style scoped lang="scss">
@@ -121,7 +135,11 @@ export default {
       }
 
       .description-layout {
-
+        .description {
+          padding: 10px;
+          line-height: 23px;
+          color: var(--color-primary);
+        }
       }
     }
 
