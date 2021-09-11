@@ -1,12 +1,10 @@
 <template>
-  <div class="layout">
-    <div class="item">
+  <div class="item">
+    <div class="layout">
       <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
         <div class="content">
-          <div class="image">
-            <img
-              :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id">
-          </div>
+          <poster
+            :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id"/>
           <div class="data">
             <div>
               <a class="name" draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
@@ -36,8 +34,11 @@
 </template>
 
 <script>
+import Poster from "@/components/poster";
+
 export default {
   name: "sg-item",
+  components: {Poster},
   props: {
     id: Number
   },
@@ -50,112 +51,102 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.layout {
-  padding: 10px;
-}
-
 .item {
-  height: 100px;
-  background: #f5f7fa;
-  border-radius: 5px;
-  width: 100%;
+  padding: 10px;
 
-  &:hover {
-    background: #eceff5;
-
-    img {
-      transform: scale(1.1);
-      -webkit-transform: scale(1.1);
-    }
-
-    .name {
-      color: var(--color-theme) !important;
-    }
-
-    .view {
-      .anticon {
-        color: var(--color-theme);
-      }
-    }
-
-    .rate {
-      .anticon {
-        color: #ffd600;
-      }
-    }
-  }
-
-  .content {
-    height: 100%;
-    width: 100%;
-    display: inline-flex;
-  }
-
-  .image {
-    background: #eceff5;
-    overflow: hidden;
-    width: 70px;
-    min-width: 70px;
+  .layout {
+    height: 100px;
+    background: #f5f7fa;
     border-radius: 5px;
+    width: 100%;
 
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      transition: -webkit-transform .3s;
-      transition: transform .3s;
-      border-radius: 5px;
-    }
-  }
+    &:hover {
+      background: #eceff5;
 
-  .data {
-    flex-grow: 1;
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-
-    .name {
-      font-weight: 500;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      color: var(--color-primary);
-
-      &:hover {
-        color: var(--color-theme);
-        text-decoration: underline;
+      ::v-deep .poster img {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
       }
-    }
 
-    .author, .author a {
-      color: var(--color-primary);
-      font-size: 12px;
-      display: inline-block;
-      font-weight: 500;
-    }
-
-    .author a {
-      &:hover {
-        color: var(--color-theme);
+      .name {
+        color: var(--color-theme) !important;
       }
-    }
 
-    .info {
-      display: flex;
-      margin-top: 5px;
-
-      .view, .rate {
-        color: var(--color-primary);
-        font-size: 12px;
-        font-weight: 500;
+      .view {
+        .anticon {
+          color: var(--color-theme);
+        }
       }
 
       .rate {
-        margin-left: 15px;
+        .anticon {
+          color: #ffd600;
+        }
       }
     }
+
+    .content {
+      height: 100%;
+      width: 100%;
+      display: inline-flex;
+
+      .poster {
+        width: 70px;
+        min-width: 70px;
+      }
+
+      .data {
+        flex-grow: 1;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        .name {
+          font-weight: 500;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          color: var(--color-primary);
+
+          &:hover {
+            color: var(--color-theme);
+            text-decoration: underline;
+          }
+        }
+
+        .author, .author a {
+          color: var(--color-primary);
+          font-size: 12px;
+          display: inline-block;
+          font-weight: 500;
+        }
+
+        .author a {
+          &:hover {
+            color: var(--color-theme);
+          }
+        }
+
+        .info {
+          display: flex;
+          margin-top: 5px;
+
+          .view, .rate {
+            color: var(--color-primary);
+            font-size: 12px;
+            font-weight: 500;
+          }
+
+          .rate {
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+
   }
 }
+
 </style>

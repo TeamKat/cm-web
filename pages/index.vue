@@ -24,7 +24,7 @@ import TopBar from "@/layouts/top-bar";
 import SgList from "@/layouts/sg-list";
 import CmSlider from "@/layouts/cm-slider";
 import CmList from "@/layouts/cm-list";
-import Divider from "@/layouts/divider";
+import Divider from "@/components/divider";
 
 export default {
   components: {Divider, CmSlider, CmList, SgList, TopBar},

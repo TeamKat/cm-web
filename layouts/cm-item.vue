@@ -1,12 +1,8 @@
 <template>
   <div class="item">
-    <a class="poster" draggable="false" :href="'/naruto/123'">
-      <div class="image-wrapper">
-        <div class="image">
-          <img
-            :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id">
-        </div>
-      </div>
+    <a class="poster-wrapper" draggable="false" :href="'/naruto/123'">
+      <poster
+        :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id"/>
       <div class="read">
         <a-icon type="read" theme="filled"></a-icon>
       </div>
@@ -34,8 +30,11 @@
 </template>
 
 <script>
+import Poster from "@/components/poster";
+
 export default {
   name: "cm-item",
+  components: {Poster},
   props: {
     id: Number
   },
@@ -58,7 +57,7 @@ export default {
   padding: 10px;
 
   &:hover {
-    img {
+    ::v-deep .poster img {
       transform: scale(1.1);
       -webkit-transform: scale(1.1);
     }
@@ -72,32 +71,12 @@ export default {
     }
   }
 
-  .poster {
+  .poster-wrapper {
     position: relative;
     display: flex;
 
-    .image-wrapper {
-      background: #eceff5;
-      padding-bottom: 140%;
+    .poster {
       width: 100%;
-      border-radius: 5px;
-
-      .image {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: absolute;
-        border-radius: 5px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: -webkit-transform .3s;
-          transition: transform .3s;
-          border-radius: 5px;
-        }
-      }
     }
 
     .read {
@@ -172,7 +151,6 @@ export default {
 
     &:hover {
       color: var(--color-theme);
-      //text-decoration: underline;
     }
   }
 }
