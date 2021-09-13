@@ -10,14 +10,12 @@
 </template>
 
 <script>
-import Vue from "vue";
-
-export default Vue.extend({
+export default {
   name: "genre-menu",
   props: {
     genres: Array
   },
-})
+}
 </script>
 
 <style scoped lang="scss">

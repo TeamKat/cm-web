@@ -19,7 +19,7 @@ export default {
   name: "cm-title",
   props: {
     title: String,
-    total: String,
+    total: Number,
     listUrl: String,
     previous: Function,
     next: Function,
