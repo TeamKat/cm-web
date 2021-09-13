@@ -28,5 +28,8 @@ export default  {
     description: 'Nội dung',
     all_chapters: 'Tất cả chương',
     similar: 'Tương tự',
+    updated: 'Cập nhật',
+    view: 'Lượt xem',
+    newest: 'Mới nhất',
   }
 }

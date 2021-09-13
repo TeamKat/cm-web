@@ -28,5 +28,8 @@ export default {
     description: 'Description',
     all_chapters: 'All Chapters',
     similar: 'Similar titles',
+    updated: 'Updated',
+    view: 'View',
+    newest: 'Newest',
   },
 }

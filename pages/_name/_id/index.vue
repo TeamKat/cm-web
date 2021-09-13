@@ -9,26 +9,24 @@
                 :src="'https://s199.imacdn.com/tt24/2020/03/11/c4a87a86026745b4_9772640cc500cbc1_27918158389142881.jpg'"/>
               <div class="detail">
                 <div class="name">One Punch Man, Cú Đấm Hủy Diệt</div>
-                <div class="author">
-                  <div class="info-block">
-                    <div class="title">Author:</div>
-                    <a :href="'/authors/lapham/123'">
-                      Lapham
-                    </a>,
-                    <a :href="'/authors/johnson/234'">
-                      Johnson
-                    </a>
-                  </div>
-                  <div class="info-block">
-                    <div class="title">View:</div>
-                    12,505
-                  </div>
-                  <div class="info-block">
-                    <div class="title">News:</div>
-                    <a :href="'/authors/johnson/234'">
-                      Chapter 200
-                    </a>
-                  </div>
+                <div class="info-block">
+                  <div class="title">Author:</div>
+                  <a :href="'/authors/lapham/123'">
+                    Lapham
+                  </a>,
+                  <a :href="'/authors/johnson/234'">
+                    Johnson
+                  </a>
+                </div>
+                <div class="info-block">
+                  <div class="title">{{ $t('text.view') + ':' }}</div>
+                  12,505
+                </div>
+                <div class="info-block">
+                  <div class="title">{{ $t('text.newest') + ':' }}</div>
+                  <a :href="'/authors/johnson/234'">
+                    Chapter 200
+                  </a>
                 </div>
               </div>
             </div>

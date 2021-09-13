@@ -6,11 +6,11 @@
   --color-theme: #eb2328;
 }
 
-.dark-mode {
-  --color-primary: #ccc;
-  --color-secondary: #999999;
-  --color-theme: #eb2328;
-}
+/*.dark-mode {*/
+/*  --color-primary: #ccc;*/
+/*  --color-secondary: #999999;*/
+/*  --color-theme: #eb2328;*/
+/*}*/
 
 * {
   font-family: 'Roboto', sans-serif;
