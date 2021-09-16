@@ -31,5 +31,8 @@ export default  {
     updated: 'Cập nhật',
     view: 'Lượt xem',
     newest: 'Mới nhất',
+    author: "Tác giả",
+    rate: "Đánh giá",
+    rates: ["Dở tệ","Dở","Không hay","Không hay lắm","Bình thường","Xem được","Có vẻ hay","Hay","Rất hay","Tuyệt vời"]
   }
 }
