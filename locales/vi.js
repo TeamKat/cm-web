@@ -33,6 +33,7 @@ export default  {
     newest: 'Mới nhất',
     author: "Tác giả",
     rate: "Đánh giá",
-    rates: ["Dở tệ","Dở","Không hay","Không hay lắm","Bình thường","Xem được","Có vẻ hay","Hay","Rất hay","Tuyệt vời"]
+    rate_desc: ["Kinh khủng","Tồi tệ","Bình thường","Hay","Tuyệt vời"],
+    rate_times: "Lượt",
   }
 }

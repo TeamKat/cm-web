@@ -12,33 +12,32 @@
                 <div class="name">Naruto</div>
                 <div class="author">
                   <div class="info-block">
-                    <a-icon type="user" />
+                    <a-icon type="user"/>
                     <div class="title">{{ $t("text.author") }}:</div>
-                    <a :href="'/authors/lapham/123'"> Lapham </a>,
-                    <a :href="'/authors/johnson/234'"> Johnson </a>
+                    <info-author :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
                   </div>
                   <div class="info-block">
-                    <a-icon type="eye" />
+                    <a-icon type="eye"/>
                     <div class="title">{{ $t("text.view") }}:</div>
                     12,505
                   </div>
                 </div>
                 <div class="info-block">
-                  <a-icon type="fire" />
+                  <a-icon type="fire"/>
                   <div class="title">{{ $t("text.newest") }}:</div>
-                  <a :href="'/authors/johnson/234'"> Chapter 200 </a>
+                  <info-link url="/authors/johnson/234" name="Chapter 200"/>
                 </div>
 
                 <div class="info-block">
-                    <a-icon type="heart" />
-                    <div class="title">{{ $t("text.rate") }}:</div>
-                    <rate></rate>
-                  </div>
+                  <a-icon type="heart"/>
+                  <div class="title">{{ $t("text.rate") }}:</div>
+                  <info-rate :rate="4.5" :total="120"></info-rate>
+                </div>
               </div>
             </div>
-            <divider />
+            <divider/>
             <div class="description-layout">
-              <cm-title :title="$t('text.description')" />
+              <cm-title :title="$t('text.description')"/>
               <div class="description">
                 Onepunch-Man là một Manga thể loại siêu anh hùng với đặc trưng
                 phồng tôm đấm phát chết luôn… Lol!!! Nhân vật chính trong
@@ -54,14 +53,14 @@
                 trên con đường một đấm tìm đối cực kỳ hài hước của anh!!
               </div>
             </div>
-            <divider />
-            <cp-list />
-            <divider />
-            <cm-slider :title="$t('text.similar')" :items="new Array(8)" />
+            <divider/>
+            <cp-list/>
+            <divider/>
+            <cm-slider :title="$t('text.similar')" :items="new Array(8)"/>
           </a-col>
           <a-col class="suggest" :lg="6" :md="8" :xs="24">
-            <divider class="suggest-divider" />
-            <sg-list :title="$t('text.recommend')" :items="new Array(8)" />
+            <divider class="suggest-divider"/>
+            <sg-list :title="$t('text.recommend')" :items="new Array(8)"/>
           </a-col>
         </a-row>
       </div>
@@ -79,10 +78,15 @@ import Divider from "@/components/divider";
 import Poster from "@/components/poster";
 import CmTitle from "@/components/cm-title";
 import CpList from "@/layouts/cp-list";
-import Rate from "@/components/rate/index";
+import InfoAuthor from "@/components/info-author";
+import InfoLink from "@/components/info-link";
+import InfoRate from "@/components/info-rate";
 
 export default {
   components: {
+    InfoRate,
+    InfoLink,
+    InfoAuthor,
     CpList,
     CmTitle,
     Poster,
@@ -91,7 +95,6 @@ export default {
     CmList,
     SgList,
     TopBar,
-    Rate,
   },
 };
 </script>
@@ -138,16 +141,6 @@ export default {
               font-weight: bolder;
               margin-right: 5px;
               //color: var(--color-primary);
-            }
-
-            a {
-              text-decoration: underline;
-              display: inline-block;
-              color: var(--color-primary);
-
-              &:hover {
-                color: var(--color-theme);
-              }
             }
           }
         }

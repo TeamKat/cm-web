@@ -26,13 +26,14 @@ export default {
     list: 'List all',
     recommend: 'Recommend',
     description: 'Description',
-    all_chapters: 'All Chapters',
+    all_chapters: 'All chapters',
     similar: 'Similar titles',
     updated: 'Updated',
     view: 'View',
     newest: 'Newest',
     author: "Author",
     rate: "Rate",
-    rates: ["Dở tệ","Dở","Không hay","Không hay lắm","Bình thường","Xem được","Có vẻ hay","Hay","Rất hay","Tuyệt vời"]
+    rate_desc: ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'],
+    rate_times: "Reviews",
   },
 }

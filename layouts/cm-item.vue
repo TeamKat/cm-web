@@ -12,29 +12,23 @@
       </div>
       <div class="rate">
         <a-icon type="star" theme="filled"/>
-        7.3
+        4.5
       </div>
     </a>
     <a class="name" draggable="false" :href="'/naruto/123'">
       El Dragón: Return of a Warrior
     </a>
-    <div class="author">
-      <a draggable="false" :href="'/authors/lapham/123'">
-        Lapham
-      </a>,
-      <a draggable="false" :href="'/authors/johnson/234'">
-        Johnson
-      </a>
-    </div>
+    <info-author class="author" :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
   </div>
 </template>
 
 <script>
 import Poster from "@/components/poster";
+import InfoAuthor from "@/components/info-author";
 
 export default {
   name: "cm-item",
-  components: {Poster},
+  components: {InfoAuthor, Poster},
   props: {
     id: Number
   },
@@ -143,15 +137,8 @@ export default {
     }
   }
 
-  .author a {
-    color: var(--color-primary);
+  ::v-deep .author a {
     font-size: 12px;
-    display: inline-block;
-    font-weight: 500;
-
-    &:hover {
-      color: var(--color-theme);
-    }
   }
 }
 </style>
