@@ -18,7 +18,7 @@
     <a class="name" draggable="false" :href="'/comic/naruto'">
       El Dragón: Return of a Warrior
     </a>
-    <info-author class="author" :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
+    <info-author class="author" :values="[{key: 'lapham', name: 'lapham'}, {key: 'johnson', name: 'johnson'}]"/>
   </div>
 </template>
 

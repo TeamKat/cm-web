@@ -1,9 +1,9 @@
 <template>
   <a-row class="layout">
-    <a-col v-for="genre in genres" :key="genre" :xs="12" :sm="8">
-      <nuxt-link class="genre-item" :to="localePath(`/genre/${genre.toLowerCase()}/1`)">
+    <a-col v-for="genre in genres" :key="genre.key" :xs="12" :sm="8">
+      <nuxt-link class="genre-item" :to="localePath(`/search/genre/${genre.key}`)">
         <a-icon type="caret-right"/>
-        {{ genre }}
+        {{ genre.name }}
       </nuxt-link>
     </a-col>
   </a-row>
@@ -37,7 +37,7 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 14px;
 
   &:hover {
     color: var(--color-theme);

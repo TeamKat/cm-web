@@ -49,7 +49,14 @@ export default Vue.extend({
       opacity: 1,
       scrollY: 0,
       display: true,
-      genres: ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary'],
+      genres: [
+        {key: 'action', name: 'Action'},
+        {key: 'adventure', name: 'Adventure'},
+        {key: 'animation', name: 'Animation'},
+        {key: 'comedy', name: 'Comedy'},
+        {key: 'crime', name: 'Crime'},
+        {key: 'documentary', name: 'Documentary'}
+      ],
     };
   },
   computed: {

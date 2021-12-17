@@ -12,8 +12,8 @@
           2021-05-30
         </div>
       </div>
-      <a class="cp-button" :href="'/'">
-        {{ 200 - index }}
+      <a class="cp-button" :href="`/comic/${$route.params.comic_id}/${id}`">
+        {{ name }}
       </a>
     </a-popover>
   </div>
@@ -24,7 +24,8 @@
 export default {
   name: "cp-item",
   props: {
-    index: Number,
+    id: String,
+    name: String,
     chapter: Object,
   },
 }
