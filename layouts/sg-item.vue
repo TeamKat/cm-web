@@ -10,11 +10,7 @@
               <a class="name" draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
                 El Dragón: Return of a Warrior
               </a>
-              <div class="author">
-                <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Lapham</a>
-                ,
-                <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">Johnson</a>
-              </div>
+              <info-author class="author" :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
             </div>
             <div class="info">
               <div class="view">
@@ -23,7 +19,7 @@
               </div>
               <div class="rate">
                 <a-icon type="star" theme="filled"/>
-                7.3
+                4.5
               </div>
             </div>
           </div>
@@ -35,10 +31,11 @@
 
 <script>
 import Poster from "@/components/poster";
+import InfoAuthor from "@/components/info-author";
 
 export default {
   name: "sg-item",
-  components: {Poster},
+  components: {InfoAuthor, Poster},
   props: {
     id: Number
   },
@@ -116,17 +113,8 @@ export default {
           }
         }
 
-        .author, .author a {
-          color: var(--color-primary);
+        ::v-deep .author a {
           font-size: 12px;
-          display: inline-block;
-          font-weight: 500;
-        }
-
-        .author a {
-          &:hover {
-            color: var(--color-theme);
-          }
         }
 
         .info {

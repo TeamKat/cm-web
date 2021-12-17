@@ -6,27 +6,32 @@
           <a-col class="content" :lg="18" :md="16" :xs="24">
             <div class="info-layout">
               <poster
-                :src="'https://s199.imacdn.com/tt24/2020/03/11/c4a87a86026745b4_9772640cc500cbc1_27918158389142881.jpg'"/>
+                :src="'https://s199.imacdn.com/tt24/2020/03/11/c4a87a86026745b4_9772640cc500cbc1_27918158389142881.jpg'"
+              />
               <div class="detail">
-                <div class="name">One Punch Man, Cú Đấm Hủy Diệt</div>
-                <div class="info-block">
-                  <div class="title">Author:</div>
-                  <a :href="'/authors/lapham/123'">
-                    Lapham
-                  </a>,
-                  <a :href="'/authors/johnson/234'">
-                    Johnson
-                  </a>
+                <div class="name">Naruto</div>
+                <div class="author">
+                  <div class="info-block">
+                    <a-icon type="user"/>
+                    <div class="title">{{ $t("text.author") }}:</div>
+                    <info-author :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
+                  </div>
+                  <div class="info-block">
+                    <a-icon type="eye"/>
+                    <div class="title">{{ $t("text.view") }}:</div>
+                    12,505
+                  </div>
                 </div>
                 <div class="info-block">
-                  <div class="title">{{ $t('text.view') + ':' }}</div>
-                  12,505
+                  <a-icon type="fire"/>
+                  <div class="title">{{ $t("text.newest") }}:</div>
+                  <info-link url="/authors/johnson/234" name="Chapter 200"/>
                 </div>
+
                 <div class="info-block">
-                  <div class="title">{{ $t('text.newest') + ':' }}</div>
-                  <a :href="'/authors/johnson/234'">
-                    Chapter 200
-                  </a>
+                  <a-icon type="heart"/>
+                  <div class="title">{{ $t("text.rate") }}:</div>
+                  <info-rate :rate="4.5" :total="120"></info-rate>
                 </div>
               </div>
             </div>
@@ -34,14 +39,18 @@
             <div class="description-layout">
               <cm-title :title="$t('text.description')"/>
               <div class="description">
-                Onepunch-Man là một Manga thể loại siêu anh hùng với đặc trưng phồng tôm đấm phát chết luôn… Lol!!! Nhân
-                vật chính trong Onepunch-man là Saitama, một con người mà nhìn đâu cũng thấy “tầm thường”, từ khuôn mặt
-                vô hồn, cái đầu trọc lóc, cho tới thể hình long tong. Tuy nhiên, con người nhìn thì tầm thường này lại
-                chuyên giải quyết những vấn đề hết sức bất thường. Anh thực chất chính là một siêu anh hùng luôn tìm
-                kiếm cho mình một đối thủ mạnh. Vấn đề là, cứ mỗi lần bắt gặp một đối thủ tiềm năng, thì đối thủ nào
-                cũng như đối thủ nào, chỉ ăn một đấm của anh là… chết luôn. Liệu rằng Onepunch-Man Saitaman có thể tìm
-                được cho mình một kẻ ác dữ dằn đủ sức đấu với anh? Hãy theo bước Saitama trên con đường một đấm tìm đối
-                cực kỳ hài hước của anh!!
+                Onepunch-Man là một Manga thể loại siêu anh hùng với đặc trưng
+                phồng tôm đấm phát chết luôn… Lol!!! Nhân vật chính trong
+                Onepunch-man là Saitama, một con người mà nhìn đâu cũng thấy
+                “tầm thường”, từ khuôn mặt vô hồn, cái đầu trọc lóc, cho tới thể
+                hình long tong. Tuy nhiên, con người nhìn thì tầm thường này lại
+                chuyên giải quyết những vấn đề hết sức bất thường. Anh thực chất
+                chính là một siêu anh hùng luôn tìm kiếm cho mình một đối thủ
+                mạnh. Vấn đề là, cứ mỗi lần bắt gặp một đối thủ tiềm năng, thì
+                đối thủ nào cũng như đối thủ nào, chỉ ăn một đấm của anh là…
+                chết luôn. Liệu rằng Onepunch-Man Saitaman có thể tìm được cho
+                mình một kẻ ác dữ dằn đủ sức đấu với anh? Hãy theo bước Saitama
+                trên con đường một đấm tìm đối cực kỳ hài hước của anh!!
               </div>
             </div>
             <divider/>
@@ -69,10 +78,25 @@ import Divider from "@/components/divider";
 import Poster from "@/components/poster";
 import CmTitle from "@/components/cm-title";
 import CpList from "@/layouts/cp-list";
+import InfoAuthor from "@/components/info-author";
+import InfoLink from "@/components/info-link";
+import InfoRate from "@/components/info-rate";
 
 export default {
-  components: {CpList, CmTitle, Poster, Divider, CmSlider, CmList, SgList, TopBar},
-}
+  components: {
+    InfoRate,
+    InfoLink,
+    InfoAuthor,
+    CpList,
+    CmTitle,
+    Poster,
+    Divider,
+    CmSlider,
+    CmList,
+    SgList,
+    TopBar,
+  },
+};
 </script>
 <style scoped lang="scss">
 .home {
@@ -118,16 +142,6 @@ export default {
               margin-right: 5px;
               //color: var(--color-primary);
             }
-
-            a {
-              text-decoration: underline;
-              display: inline-block;
-              color: var(--color-primary);
-
-              &:hover {
-                color: var(--color-theme);
-              }
-            }
           }
         }
       }
@@ -156,7 +170,6 @@ export default {
     margin-top: 116px;
 
     .container {
-
       .content {
         margin-right: unset;
         border-right: unset;
@@ -176,5 +189,4 @@ export default {
     }
   }
 }
-
 </style>
