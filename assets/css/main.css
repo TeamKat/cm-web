@@ -25,3 +25,7 @@ body {
   max-width: 1200px;
   padding: 10px;
 }
+
+html {
+  scroll-behavior: smooth;
+}

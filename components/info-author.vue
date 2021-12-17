@@ -1,13 +1,14 @@
 <template>
   <span>
     <span v-for="(value, index)  in values" :key="index">
-      <info-link :url="'/authors/' + value.name + '/' + value.id" :name="value.name"/>
+      <info-link :url="`/search/author/${value.key}`" :name="value.name"/>
       <span class="separation" v-if="index < values.length - 1">,</span>
     </span>
   </span>
 </template>
 <script>
 import InfoLink from "@/components/info-link";
+
 export default {
   name: "info-author",
   components: {InfoLink},

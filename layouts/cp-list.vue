@@ -2,7 +2,7 @@
   <div>
     <cm-title :title="$t('text.all_chapters')"/>
     <div class="chapter-list">
-      <cp-item v-for="(item, index)  in new Array(200)" :key="index" :index="index"/>
+      <cp-item v-for="(item, index)  in new Array(200)" :key="index" :id="`chapter-${200-index}`" :name="200-index+''"/>
     </div>
   </div>
 </template>

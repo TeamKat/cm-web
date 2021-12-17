@@ -21,9 +21,14 @@ export default {
 <style scoped lang="scss">
 ::v-deep .rate {
   font-size: 16px;
+
+  .ant-rate-star:not(:last-child) {
+    margin-right: 4px;
+  }
 }
+
 .rate-text {
   font-size: 13px;
-  padding: 0 8px;
+  margin-left: 4px;
 }
 </style>

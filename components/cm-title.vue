@@ -7,8 +7,8 @@
       <div v-if="previous" class="previous" @click="previous">
         <a-icon type="caret-left"/>
       </div>
-      <div v-if="next" class="next">
-        <a-icon type="caret-right" @click="next"/>
+      <div v-if="next" class="next" @click="next">
+        <a-icon type="caret-right"/>
       </div>
     </div>
   </header>

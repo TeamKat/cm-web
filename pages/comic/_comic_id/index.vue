@@ -14,7 +14,7 @@
                   <div class="info-block">
                     <a-icon type="user"/>
                     <div class="title">{{ $t("text.author") }}:</div>
-                    <info-author :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
+                    <info-author :values="[{key: 'lapham', name: 'lapham'}, {key: 'johnson', name: 'johnson'}]"/>
                   </div>
                   <div class="info-block">
                     <a-icon type="eye"/>

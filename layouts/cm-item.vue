@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <a class="poster-wrapper" draggable="false" :href="'/naruto/123'">
+    <a class="poster-wrapper" draggable="false" :href="'/comic/naruto'">
       <poster
         :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id"/>
       <div class="read">
@@ -15,10 +15,10 @@
         4.5
       </div>
     </a>
-    <a class="name" draggable="false" :href="'/naruto/123'">
+    <a class="name" draggable="false" :href="'/comic/naruto'">
       El Dragón: Return of a Warrior
     </a>
-    <info-author class="author" :values="[{id: 123, name: 'lapham'}, {id: 234, name: 'johnson'}]"></info-author>
+    <info-author class="author" :values="[{key: 'lapham', name: 'lapham'}, {key: 'johnson', name: 'johnson'}]"/>
   </div>
 </template>
 

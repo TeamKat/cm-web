@@ -4,8 +4,6 @@
       <div class="container">
         <a-row :gutter="10">
           <a-col class="content" :lg="18" :md="16" :xs="24">
-            <cm-slider :title="$t('text.featured')" :total="84" :list-url="'/search/featured'" :items="new Array(8)"/>
-            <divider/>
             <cm-list :title="$t('text.list')" :total="84" :items="new Array(8)"/>
           </a-col>
           <a-col class="suggest" :lg="6" :md="8" :xs="24">
@@ -27,7 +25,14 @@ import CmList from "@/layouts/cm-list";
 import Divider from "@/components/divider";
 
 export default {
+  name: 'search-detail',
   components: {Divider, CmSlider, CmList, SgList, TopBar},
+  data() {
+    return {
+      name: this.$route.params.name,
+      id: this.$route.params.id
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
