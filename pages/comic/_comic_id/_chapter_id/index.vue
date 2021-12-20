@@ -201,7 +201,7 @@ export default {
 
     .next, .previous {
       cursor: pointer;
-      padding: 4px 16px;
+      padding: 8px 20px;
       margin: 0 10px;
       background: var(--color-theme);
       color: white;

@@ -20,7 +20,10 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'ant-design-vue/dist/antd.css',
+    {
+      src: '@/assets/css/antd.less',
+      lang: 'less'
+    },
     '@/assets/css/main.css',
   ],
 
@@ -66,5 +69,11 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {
+    loaders: {
+      less: {
+        javascriptEnabled: true,
+      }
+    }
+  }
 }

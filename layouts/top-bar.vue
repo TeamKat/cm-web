@@ -148,15 +148,10 @@ export default Vue.extend({
 /*::v-deep*/
 ::v-deep .ant-input-search .ant-input {
   background: #f5f7fa;
-  border: 1px solid #eceff5;
   border-radius: 12px;
 
   &:focus {
     box-shadow: unset;
-  }
-
-  &:hover {
-    border: 1px solid #eceff5;
   }
 }
 
