@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

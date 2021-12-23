@@ -28,6 +28,11 @@ import Divider from "@/components/divider";
 
 export default {
   components: {Divider, CmSlider, CmList, SgList, TopBar},
+  head() {
+    return {
+      title: this.$t('text.home')
+    };
+  }
 }
 </script>
 <style scoped lang="scss">

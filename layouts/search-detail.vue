@@ -27,6 +27,11 @@ import Divider from "@/components/divider";
 export default {
   name: 'search-detail',
   components: {Divider, CmSlider, CmList, SgList, TopBar},
+  head() {
+    return {
+      title: this.$t('text.search')
+    };
+  },
   data() {
     return {
       name: this.$route.params.name,
