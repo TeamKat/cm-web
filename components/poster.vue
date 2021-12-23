@@ -1,14 +1,16 @@
 <template>
   <div class="poster">
     <div class="image">
-      <img :src="src" alt=""/>
+      <lazy-img :src="src"/>
     </div>
   </div>
 </template>
 
 <script>
+import LazyImg from "@/components/lazy-img";
 export default {
   name: "poster",
+  components: {LazyImg},
   props: {
     src: String
   }
@@ -22,7 +24,6 @@ export default {
   aspect-ratio: auto 5 / 7;
   background-size: cover;
   border-radius: 5px;
-  background: #eceff5;
   overflow: hidden;
 
   img {

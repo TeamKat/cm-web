@@ -24,7 +24,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "fibers": "^5.0.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",

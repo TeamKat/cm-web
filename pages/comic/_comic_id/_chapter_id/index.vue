@@ -55,7 +55,7 @@
       </div>
 
 
-      <div class="container" style="background: unset">
+      <div class="container" style="background: unset; padding: unset">
         <div class="cp-control">
           <span class="previous">
             <a-icon type="caret-left"/>
@@ -74,12 +74,9 @@
             <a-icon type="caret-right"/>
           </span>
         </div>
-        <div style="padding: 10px 0">
-          <div class="image" style="text-align: center" v-for="(item, index)  in new Array(20)" :key="index">
-            <img style="max-width: 100%"
-                 :src="'https://placeimg.com/'+1000 + '/'+getRandomArbitrary(200, 1000)+'/any?' + getRandomArbitrary(200, 1000)"
-                 alt=""/>
-          </div>
+        <div>
+          <cm-page v-for="(item, index)  in new Array(20)" :key="index"
+                   :src="'https://placeimg.com/'+1000 + '/'+getRandomArbitrary(200, 1000)+'/any?' + getRandomArbitrary(200, 1000)"/>
         </div>
 
         <div class="cp-control">
@@ -112,9 +109,13 @@ import CpList from "@/layouts/cp-list";
 import InfoAuthor from "@/components/info-author";
 import InfoLink from "@/components/info-link";
 import InfoRate from "@/components/info-rate";
+import CmImg from "@/components/lazy-img";
+import CmPage from "@/layouts/cm-page";
 
 export default {
   components: {
+    CmPage,
+    CmImg,
     InfoRate,
     InfoLink,
     InfoAuthor,
@@ -197,7 +198,7 @@ export default {
 
   .cp-control {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
 
     .next, .previous {
       cursor: pointer;
@@ -216,11 +217,10 @@ export default {
   max-height: 250px;
   overflow: auto;
 }
-::-webkit-scrollbar {
-  display: none;
-}
 
-
+//::-webkit-scrollbar {
+//  display: none;
+//}
 
 @media screen and (max-width: 768px) {
   .home {
