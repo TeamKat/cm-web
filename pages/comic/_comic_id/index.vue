@@ -96,6 +96,11 @@ export default {
     SgList,
     TopBar,
   },
+  head() {
+    return {
+      title: "Naruto"
+    };
+  },
 };
 </script>
 <style scoped lang="scss">

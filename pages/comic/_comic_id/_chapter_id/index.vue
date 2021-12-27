@@ -7,7 +7,7 @@
             :src="'https://s199.imacdn.com/tt24/2020/03/11/c4a87a86026745b4_9772640cc500cbc1_27918158389142881.jpg'"
           />
           <div class="detail">
-            <div class="name">Naruto</div>
+            <div class="name">Naruto Chapter 120</div>
             <div class="author">
               <div class="info-block">
                 <a-icon type="user"/>
@@ -130,6 +130,11 @@ export default {
     CmList,
     SgList,
     TopBar,
+  },
+  head() {
+    return {
+      title: "Naruto Chapter 120"
+    };
   },
   methods: {
     getRandomArbitrary(min, max) {

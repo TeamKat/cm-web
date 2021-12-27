@@ -4,7 +4,7 @@ export default {
     host: '0.0.0.0'
   },
   head: {
-    title: 'cm-web',
+    title: 'Samurai Studio',
     htmlAttrs: {
       lang: 'en'
     },

@@ -8,7 +8,7 @@
               <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
             </a>
             <a class="menu-item-first" href="/">{{ $t('text.home') }}</a>
-            <nuxt-link class="menu-item" :to="localePath('/most-view')">{{ $t('text.most_view') }}</nuxt-link>
+            <nuxt-link class="menu-item" :to="localePath('/search/most-view')">{{ $t('text.most_view') }}</nuxt-link>
             <a-dropdown>
               <a class="menu-item-dropdown">{{ $t('text.genre') }}
                 <a-icon type="caret-down"/>

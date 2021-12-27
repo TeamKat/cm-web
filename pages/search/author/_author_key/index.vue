@@ -11,12 +11,12 @@ export default {
   },
   data() {
     return {
-      genreKey: this.$route.params.genre_key,
+      authorKey: this.$route.params.author_key,
     }
   },
   computed: {
     title() {
-      return capitalize(this.$t('text.genre') + " " + this.genreKey)
+      title: capitalize(this.$t('text.author') + " " + this.authorKey)
     }
   }
 }
