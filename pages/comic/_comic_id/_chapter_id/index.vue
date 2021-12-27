@@ -76,7 +76,8 @@
         </div>
         <div>
           <cm-page v-for="(item, index)  in new Array(20)" :key="index"
-                   :src="'https://placeimg.com/'+1000 + '/'+getRandomArbitrary(200, 1000)+'/any?' + getRandomArbitrary(200, 1000)"/>
+                    :show-loading="true"
+                    :src="'https://placeimg.com/'+1000 + '/'+getRandomArbitrary(200, 1000)+'/any?' + getRandomArbitrary(200, 1000)"/>
         </div>
 
         <div class="cp-control">
@@ -111,9 +112,11 @@ import InfoLink from "@/components/info-link";
 import InfoRate from "@/components/info-rate";
 import CmImg from "@/components/lazy-img";
 import CmPage from "@/layouts/cm-page";
+import LazyImg from "@/components/lazy-img";
 
 export default {
   components: {
+    LazyImg,
     CmPage,
     CmImg,
     InfoRate,

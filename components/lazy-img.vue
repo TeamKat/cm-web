@@ -1,5 +1,5 @@
 <template>
-  <img class="lazy-img" :src="src" alt="" loading="lazy">
+  <img class="lazy-img" :src="src" alt="" loading="lazy" v-on:load="onload">
 </template>
 
 <script>
@@ -9,6 +9,11 @@ export default {
   props: {
     src: "",
   },
+  methods: {
+    onload() {
+      this.$emit('load')
+    }
+  }
 }
 </script>
 
