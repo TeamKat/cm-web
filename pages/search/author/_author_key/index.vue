@@ -4,11 +4,6 @@ import {capitalize} from "@/utils/text-tranform";
 
 export default {
   extends: SearchDetail,
-  head() {
-    return {
-      title: this.title
-    };
-  },
   data() {
     return {
       authorKey: this.$route.params.author_key,
@@ -16,8 +11,8 @@ export default {
   },
   computed: {
     title() {
-      title: capitalize(this.$t('text.author') + " " + this.authorKey)
-    }
+      return capitalize(this.$t('text.author') + " " + this.authorKey)
+    },
   }
 }
 </script>

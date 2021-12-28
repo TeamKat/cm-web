@@ -4,10 +4,10 @@ import {capitalize} from "@/utils/text-tranform";
 
 export default {
   extends: SearchDetail,
-  head() {
-    return {
-      title: capitalize(this.$t('text.most_view'))
-    };
-  },
+  computed: {
+    title() {
+      return capitalize(this.$t('text.most_view'))
+    },
+  }
 }
 </script>

@@ -4,7 +4,7 @@
       <div class="container">
         <a-row :gutter="10">
           <a-col class="content" :lg="18" :md="16" :xs="24">
-            <cm-list :title="$t('text.list')" :total="84" :items="new Array(8)"/>
+            <cm-list :title="title" :total="84" :items="new Array(8)"/>
           </a-col>
           <a-col class="suggest" :lg="6" :md="8" :xs="24">
             <divider class="suggest-divider"/>
@@ -27,6 +27,16 @@ import Divider from "@/components/divider";
 export default {
   name: 'search-detail',
   components: {Divider, CmSlider, CmList, SgList, TopBar},
+  head() {
+    return {
+      title: this.title
+    }
+  },
+  computed: {
+    title() {
+      return this.$t('text.list')
+    }
+  }
 }
 </script>
 <style scoped lang="scss">

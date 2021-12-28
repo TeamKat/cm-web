@@ -4,11 +4,6 @@ import {capitalize} from "@/utils/text-tranform";
 
 export default {
   extends: SearchDetail,
-  head() {
-    return {
-      title: this.title
-    };
-  },
   data() {
     return {
       genreKey: this.$route.params.genre_key,
@@ -17,7 +12,7 @@ export default {
   computed: {
     title() {
       return capitalize(this.$t('text.genre') + " " + this.genreKey)
-    }
+    },
   }
 }
 </script>
