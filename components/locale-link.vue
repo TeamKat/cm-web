@@ -1,7 +1,7 @@
 <template>
-  <nuxt-link :to="localePath(url)">
+  <a :href="localePath(url)">
     <slot/>
-  </nuxt-link>
+  </a>
 </template>
 <script>
 export default {

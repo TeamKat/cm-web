@@ -2,7 +2,7 @@
   <div class="container">
     <a-row :gutter="10">
       <a-col class="content" :lg="18" :md="16" :xs="24">
-        <cm-slider :title="$t('text.featured')" :total="84" :list-url="'/search/featured'" :items="new Array(8)"/>
+        <cm-slider :title="$t('text.featured')" :total="84" list-url="/search/featured" :items="new Array(8)"/>
         <divider/>
         <cm-list :title="$t('text.list')" :total="84" :items="new Array(8)"/>
       </a-col>
