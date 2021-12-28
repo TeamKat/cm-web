@@ -1,14 +1,16 @@
 <template>
   <span>
-      <a :href="url">{{ name }}</a>
+    <locale-link :url="url"><slot/></locale-link>
   </span>
 </template>
 <script>
+import LocaleLink from "@/components/locale-link";
+
 export default {
   name: "info-link",
+  components: {LocaleLink},
   props: {
-    url: String,
-    name: String,
+    url: "",
   },
 };
 </script>

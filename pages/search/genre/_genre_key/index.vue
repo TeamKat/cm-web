@@ -4,6 +4,7 @@ import {capitalize} from "@/utils/text-tranform";
 
 export default {
   extends: SearchDetail,
+  name: 'genre',
   data() {
     return {
       genreKey: this.$route.params.genre_key,

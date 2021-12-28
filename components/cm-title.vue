@@ -3,7 +3,7 @@
     <div class="title">{{ title }}</div>
     <div class="control">
       <div v-if="total" class="total">{{ total }}</div>
-      <nuxt-link v-if="listUrl" class="see-all" :to="localePath(listUrl)">{{ $t('text.see_all') }}</nuxt-link>
+      <locale-link v-if="listUrl" class="see-all" :url="listUrl">{{ $t('text.see_all') }}</locale-link>
       <div v-if="previous" class="previous" @click="previous">
         <a-icon type="caret-left"/>
       </div>
@@ -15,8 +15,10 @@
 </template>
 
 <script>
+import LocaleLink from "@/components/locale-link";
 export default {
   name: "cm-title",
+  components: {LocaleLink},
   props: {
     title: String,
     total: Number,

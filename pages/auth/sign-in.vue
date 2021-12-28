@@ -22,10 +22,10 @@
           <a-checkbox v-decorator="['remember', { valuePropName: 'checked', initialValue: true }]">
             {{ $t('text.remember') }}
           </a-checkbox>
-          <a class="forgot-password" href="">{{ $t('text.forgot_password') }}</a>
+          <locale-link class="forgot-password" url="">{{ $t('text.forgot_password') }}</locale-link>
           <a-button class="sign-in" type="primary" html-type="submit">{{ $t('text.sign_in') }}</a-button>
           {{ $t('text.or') + ' ' }}
-          <a class="sign-up" :href="localePath('/auth/sign-up')">{{ $t('text.sign_up') }}</a>
+          <locale-link class="sign-up" url="/auth/sign-up">{{ $t('text.sign_up') }}</locale-link>
         </a-form-item>
       </a-form>
     </a-card>
@@ -38,9 +38,10 @@ import AuthApi from '@/api/auth'
 import SignInRules from '@/rules/auth/sign-in'
 import {setAuthToken, setRefreshToken} from "@/utils/local-storage";
 import Logo from "@/components/logo";
+import LocaleLink from "@/components/locale-link";
 
 export default Vue.extend({
-  components: {Logo},
+  components: {LocaleLink, Logo},
   data() {
     return {
       rules: SignInRules,

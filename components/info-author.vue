@@ -1,7 +1,7 @@
 <template>
   <span>
     <span v-for="(value, index)  in values" :key="index">
-      <info-link :url="`/search/author/${value.key}`" :name="value.name"/>
+      <info-link :url="`/search/author/${value.key}`">{{ value.name }}</info-link>
       <span class="separation" v-if="index < values.length - 1">,</span>
     </span>
   </span>

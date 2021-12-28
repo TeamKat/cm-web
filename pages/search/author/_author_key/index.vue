@@ -4,6 +4,7 @@ import {capitalize} from "@/utils/text-tranform";
 
 export default {
   extends: SearchDetail,
+  name: 'author',
   data() {
     return {
       authorKey: this.$route.params.author_key,

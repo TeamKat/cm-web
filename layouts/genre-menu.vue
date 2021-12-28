@@ -1,17 +1,19 @@
 <template>
   <a-row class="layout">
     <a-col v-for="genre in genres" :key="genre.key" :xs="12" :sm="8">
-      <nuxt-link class="genre-item" :to="localePath(`/search/genre/${genre.key}`)">
+      <locale-link class="genre-item" :url="`/search/genre/${genre.key}`">
         <a-icon type="caret-right"/>
         {{ genre.name }}
-      </nuxt-link>
+      </locale-link>
     </a-col>
   </a-row>
 </template>
 
 <script>
+import LocaleLink from "@/components/locale-link";
 export default {
   name: "genre-menu",
+  components: {LocaleLink},
   props: {
     genres: Array
   },

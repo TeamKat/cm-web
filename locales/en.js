@@ -31,9 +31,9 @@ export default {
     updated: 'Updated',
     view: 'View',
     newest: 'Newest',
-    author: "Author",
-    rate: "Rate",
+    author: 'Author',
+    rate: 'Rate',
     rate_desc: ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'],
-    rate_times: "Reviews",
+    rate_times: 'Reviews',
   },
 }

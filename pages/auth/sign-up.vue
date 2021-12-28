@@ -45,7 +45,7 @@
         <a-form-item>
           <a-button class="sign-up" type="primary" html-type="submit">{{ $t('text.sign_up') }}</a-button>
           {{ $t('text.or') + ' ' }}
-          <a class="sign-in" :href="localePath('/auth/sign-in')">{{ $t('text.sign_in') }}</a>
+          <locale-link class="sign-in" url="/auth/sign-in">{{ $t('text.sign_in') }}</locale-link>
         </a-form-item>
       </a-form>
     </a-card>
@@ -58,9 +58,10 @@ import AuthApi from '@/api/auth'
 import SignUpRules from '@/rules/auth/sign-up'
 import {setAuthToken, setRefreshToken} from "@/utils/local-storage";
 import Logo from "@/components/logo";
+import LocaleLink from "@/components/locale-link";
 
 export default Vue.extend({
-  components: {Logo},
+  components: {LocaleLink, Logo},
   data() {
     return {
       rules: SignUpRules,

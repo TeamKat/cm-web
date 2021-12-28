@@ -1,15 +1,16 @@
 <template>
   <div class="item">
     <div class="layout">
-      <a draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+      <locale-link draggable="false" :url="'/comic/naruto'">
         <div class="content">
           <poster
             :src="'https://placeimg.com/'+getRandomArbitrary(200, 1000) + '/'+getRandomArbitrary(200, 1000)+'/any?' + id"/>
           <div class="data">
             <div>
-              <a class="name" draggable="false" :href="'https://hdonline.cc/tvshows/el-dragn-return-of-a-warrior/'">
+              <locale-link class="name" draggable="false"
+                           :url="'/comic/naruto'">
                 El Dragón: Return of a Warrior
-              </a>
+              </locale-link>
               <info-author class="author" :values="[{key: 'lapham', name: 'lapham'}, {key: 'johnson', name: 'johnson'}]"/>
             </div>
             <div class="info">
@@ -24,7 +25,7 @@
             </div>
           </div>
         </div>
-      </a>
+      </locale-link>
     </div>
   </div>
 </template>
@@ -32,10 +33,11 @@
 <script>
 import Poster from "@/components/poster";
 import InfoAuthor from "@/components/info-author";
+import LocaleLink from "@/components/locale-link";
 
 export default {
   name: "sg-item",
-  components: {InfoAuthor, Poster},
+  components: {LocaleLink, InfoAuthor, Poster},
   props: {
     id: Number
   },

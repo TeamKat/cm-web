@@ -5,8 +5,8 @@
         <a-row>
           <a-col :lg="18" :md="16" :xs="24" class="menu-pc">
             <logo/>
-            <a class="menu-item-first" href="/">{{ $t('text.home') }}</a>
-            <nuxt-link class="menu-item" :to="localePath('/search/most-view')">{{ $t('text.most_view') }}</nuxt-link>
+            <locale-link class="menu-item-first" url="/">{{ $t('text.home') }}</locale-link>
+            <locale-link class="menu-item" url="/search/most-view">{{ $t('text.most_view') }}</locale-link>
             <a-dropdown>
               <a class="menu-item-dropdown">{{ $t('text.genre') }}
                 <a-icon type="caret-down"/>
@@ -37,10 +37,11 @@
 import Vue from 'vue'
 import GenreMenu from "@/layouts/genre-menu";
 import Logo from "@/components/logo";
+import LocaleLink from "@/components/locale-link";
 
 export default Vue.extend({
   name: 'top-bar',
-  components: {Logo, GenreMenu},
+  components: {LocaleLink, Logo, GenreMenu},
   data() {
     return {
       opacity: 1,

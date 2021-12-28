@@ -12,17 +12,19 @@
           2021-05-30
         </div>
       </div>
-      <a class="cp-button" :href="`/comic/${$route.params.comic_id}/${id}`">
+      <locale-link class="cp-button" :url="`/comic/${$route.params.comic_id}/${id}`">
         {{ name }}
-      </a>
+      </locale-link>
     </a-popover>
   </div>
 </template>
 
 <script>
 
+import LocaleLink from "@/components/locale-link";
 export default {
   name: "cp-item",
+  components: {LocaleLink},
   props: {
     id: String,
     name: String,

@@ -1,12 +1,14 @@
 <template>
-  <a href="/">
+  <locale-link url="/">
     <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
-  </a>
+  </locale-link>
 </template>
 
 <script>
+import LocaleLink from "@/components/locale-link";
 export default {
-  name: "logo"
+  name: "logo",
+  components: {LocaleLink}
 }
 </script>
 
