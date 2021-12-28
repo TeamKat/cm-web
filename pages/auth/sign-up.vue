@@ -2,9 +2,7 @@
   <div class="card-wrapper">
     <a-card class="card">
       <div class="logo-wrapper">
-        <a href="/">
-          <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
-        </a>
+        <logo/>
       </div>
       <div class="title">{{ $t('text.sign_up') }}</div>
       <a-form layout="vertical" :form="form" @submit="submit">
@@ -59,8 +57,10 @@ import Vue from 'vue'
 import AuthApi from '@/api/auth'
 import SignUpRules from '@/rules/auth/sign-up'
 import {setAuthToken, setRefreshToken} from "@/utils/local-storage";
+import Logo from "@/components/logo";
 
 export default Vue.extend({
+  components: {Logo},
   data() {
     return {
       rules: SignUpRules,
@@ -103,10 +103,6 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   margin-top: 16px;
-}
-
-.logo {
-  height: 64px;
 }
 
 .title {

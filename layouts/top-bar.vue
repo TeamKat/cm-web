@@ -4,9 +4,7 @@
       <div class="container">
         <a-row>
           <a-col :lg="18" :md="16" :xs="24" class="menu-pc">
-            <a href="/">
-              <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
-            </a>
+            <logo/>
             <a class="menu-item-first" href="/">{{ $t('text.home') }}</a>
             <nuxt-link class="menu-item" :to="localePath('/search/most-view')">{{ $t('text.most_view') }}</nuxt-link>
             <a-dropdown>
@@ -22,9 +20,7 @@
             <div class="nav">
               <a-icon type="menu"/>
             </div>
-            <a href="/">
-              <img class="logo" src="@/assets/images/logo.jpg" alt="logo"/>
-            </a>
+            <logo/>
             <div class="user"></div>
           </a-col>
           <a-col :lg="6" :md="8" :xs="24" class="search-col">
@@ -40,10 +36,11 @@
 <script>
 import Vue from 'vue'
 import GenreMenu from "@/layouts/genre-menu";
+import Logo from "@/components/logo";
 
 export default Vue.extend({
   name: 'top-bar',
-  components: {GenreMenu},
+  components: {Logo, GenreMenu},
   data() {
     return {
       opacity: 1,
@@ -139,10 +136,6 @@ export default Vue.extend({
 
 .menu-item-first {
   margin-left: 20px;
-}
-
-.logo {
-  height: 64px;
 }
 
 /*::v-deep*/
