@@ -140,7 +140,7 @@ export default Vue.extend({
 }
 
 /*:deep*/
-:deep .ant-input-search .ant-input {
+:deep(.ant-input-search .ant-input) {
   background: #f5f7fa;
   border-radius: 12px;
 

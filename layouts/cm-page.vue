@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-:deep .ant-spin {
+:deep(.ant-spin) {
   position: relative;
   background: #eceff5;
   width: 100%;

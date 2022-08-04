@@ -62,7 +62,7 @@ export default {
     &:hover {
       background: #eceff5;
 
-      :deep .poster img {
+      :deep(.poster img) {
         transform: scale(1.1);
         -webkit-transform: scale(1.1);
       }
@@ -115,7 +115,7 @@ export default {
           }
         }
 
-        :deep .author a {
+        :deep(.author a) {
           font-size: 12px;
         }
 

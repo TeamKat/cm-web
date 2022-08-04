@@ -135,7 +135,7 @@ export default Vue.extend({
   color: rgba(0, 0, 0, .25);
 }
 
-/*::v-deep*/
+/*:deep*/
 .ant-form-item {
   margin-bottom: 12px;
   padding-bottom: 0;
