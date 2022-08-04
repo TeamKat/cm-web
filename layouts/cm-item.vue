@@ -52,7 +52,7 @@ export default {
   padding: 10px;
 
   &:hover {
-    ::v-deep .poster img {
+    :deep .poster img {
       transform: scale(1.1);
       -webkit-transform: scale(1.1);
     }
@@ -138,7 +138,7 @@ export default {
     }
   }
 
-  ::v-deep .author a {
+  :deep .author a {
     font-size: 12px;
   }
 }

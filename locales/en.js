@@ -2,7 +2,18 @@ export default {
   message: {
     error: 'An error occurred',
     success: 'Success',
-    required: 'This field is required',
+    firebase: {
+      'auth/too-many-requests' : 'Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.',
+      'auth/wrong-password' : 'The password is invalid or the user does not have a password. ',
+      'auth/user-not-found': 'There is no user record corresponding to this identifier. The user may have been deleted.',
+      'auth/weak-password': 'Password should be at least 6 characters.',
+      'auth/email-already-in-use': 'The email address is already in use by another account.',
+    }
+  },
+  validation: {
+    required: '{name} is required',
+    matched: '{name} does not match',
+    email: '{name} is not valid email'
   },
   text: {
     home: 'Home',
@@ -10,7 +21,6 @@ export default {
     most_view: 'Most view',
     search: 'Search',
     sign_in: 'Sign in',
-    user_id: 'Email or username',
     account: 'Account',
     password: 'Password',
     confirm: 'Confirm',

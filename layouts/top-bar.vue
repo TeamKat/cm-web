@@ -139,8 +139,8 @@ export default Vue.extend({
   margin-left: 20px;
 }
 
-/*::v-deep*/
-::v-deep .ant-input-search .ant-input {
+/*:deep*/
+:deep .ant-input-search .ant-input {
   background: #f5f7fa;
   border-radius: 12px;
 

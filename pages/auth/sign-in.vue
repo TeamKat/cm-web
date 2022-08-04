@@ -6,15 +6,17 @@
       </div>
       <div class="title">{{ $t('text.sign_in') }}</div>
       <a-form layout="vertical" :form="form" @submit="submit">
-        <a-form-item :help="errors.user_id">
-          <a-input :placeholder="$t('text.user_id')"
-                   v-decorator="['user_id', { rules: rules.user_id }]">
-            <a-icon class="form-icon" type="user" slot="prefix"/>
+        <a-form-item :help="errors.email">
+          <a-input :placeholder="$t('text.email')" name="email"
+                   v-model="model.email"
+                   v-decorator="[$t('text.email'), { rules: rules.email }]">
+            <a-icon class="form-icon" type="mail" slot="prefix"/>
           </a-input>
         </a-form-item>
         <a-form-item :help="errors.password">
-          <a-input :placeholder="$t('text.password')" type="password"
-                   v-decorator="['password', { rules: rules.password }]">
+          <a-input :placeholder="$t('text.password')" type="password" name="password"
+                   v-model="model.password"
+                   v-decorator="[$t('text.password'), { rules: rules.password }]">
             <a-icon class="form-icon" type="lock" slot="prefix"/>
           </a-input>
         </a-form-item>
@@ -36,7 +38,6 @@
 import Vue from 'vue'
 import AuthApi from '@/api/auth'
 import SignInRules from '@/rules/auth/sign-in'
-import {setAuthToken, setRefreshToken} from "@/utils/local-storage";
 import Logo from "@/components/logo";
 import LocaleLink from "@/components/locale-link";
 
@@ -46,6 +47,7 @@ export default Vue.extend({
     return {
       rules: SignInRules,
       errors: {},
+      model: {},
       form: this.$form.createForm(this, {name: 'sign_in'}),
     };
   },
@@ -59,9 +61,8 @@ export default Vue.extend({
       });
     },
     signIn() {
-      AuthApi.signIn().then((res) => {
-        setAuthToken(res.auth_token);
-        setRefreshToken(res.refresh_token);
+      AuthApi.signIn(this.model).then((res) => {
+        console.log(res)
       });
     },
   },
@@ -77,7 +78,7 @@ export default Vue.extend({
 }
 
 .card {
-  max-width: 400px;
+  max-width: 440px;
 }
 
 .logo-wrapper {
@@ -90,6 +91,7 @@ export default Vue.extend({
   font-size: 24px;
   text-align: center;
   font-weight: 500;
+  margin-bottom: 12px;
 }
 
 .forgot-password {
@@ -111,11 +113,7 @@ export default Vue.extend({
 
 /*::v-deep*/
 .ant-form-item {
-  margin-bottom: 0;
+  margin-bottom: 12px;
   padding-bottom: 0;
-}
-
-.ant-form > .ant-form-item {
-  margin: 12px 0;
 }
 </style>

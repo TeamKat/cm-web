@@ -6,17 +6,19 @@
       </div>
       <div class="title">{{ $t('text.sign_up') }}</div>
       <a-form layout="vertical" :form="form" @submit="submit">
-        <a-form-item :help="errors.user_name">
-          <a-input :placeholder="$t('text.user_name')"
-                   v-decorator="['user_name', { rules: rules.user_name }]">
-            <a-icon class="form-icon" type="user" slot="prefix"/>
+        <a-form-item :help="errors.email">
+          <a-input :placeholder="$t('text.email')" name="email"
+                   v-model:value="model.email"
+                   v-decorator="[$t('text.email'), { rules: rules.email }]">
+            <a-icon class="form-icon" type="mail" slot="prefix"/>
           </a-input>
         </a-form-item>
         <a-row type="flex" justify="space-between">
           <a-col :span="11">
             <a-form-item :help="errors.password">
-              <a-input :placeholder="$t('text.password')" type="password"
-                       v-decorator="['password', { rules: rules.password }]">
+              <a-input :placeholder="$t('text.password')" type="password" name="password"
+                       v-model:value="model.password"
+                       v-decorator="[$t('text.password'), { rules: rules.password }]">
                 <a-icon class="form-icon" type="lock" slot="prefix"/>
               </a-input>
             </a-form-item>
@@ -24,22 +26,18 @@
           <a-col :span="11">
             <a-form-item :help="errors.confirm">
               <a-input :placeholder="$t('text.confirm')" type="password"
-                       v-decorator="['confirm', { rules: rules.confirm }]">
+                       v-model:value="model.confirm"
+                       v-decorator="[$t('text.confirm'), { rules: confirmRules}]">
                 <a-icon class="form-icon" type="lock" slot="prefix"/>
               </a-input>
             </a-form-item>
           </a-col>
         </a-row>
         <a-form-item :help="errors.display_name">
-          <a-input :placeholder="$t('text.display_name')"
-                   v-decorator="['display_name', { rules: rules.display_name }]">
+          <a-input :placeholder="$t('text.display_name')" name="name"
+                   v-model:value="model.display_name"
+                   v-decorator="[$t('text.display_name'), { rules: rules.display_name }]">
             <a-icon class="form-icon" type="profile" slot="prefix"/>
-          </a-input>
-        </a-form-item>
-        <a-form-item :help="errors.email">
-          <a-input :placeholder="$t('text.email')"
-                   v-decorator="['email', { rules: rules.email }]">
-            <a-icon class="form-icon" type="mail" slot="prefix"/>
           </a-input>
         </a-form-item>
         <a-form-item>
@@ -56,20 +54,32 @@
 import Vue from 'vue'
 import AuthApi from '@/api/auth'
 import SignUpRules from '@/rules/auth/sign-up'
-import {setAuthToken, setRefreshToken} from "@/utils/local-storage";
 import Logo from "@/components/logo";
 import LocaleLink from "@/components/locale-link";
+import {i18n} from "@/plugins/i18n";
 
 export default Vue.extend({
   components: {LocaleLink, Logo},
   data() {
     return {
+      model: {},
       rules: SignUpRules,
+      confirmRules: [
+        {required: true, message: i18n.t('validation.required', {name: i18n.t('text.confirm')})},
+        {validator: this.confirmPassword, message: i18n.t('validation.matched', {name: i18n.t('text.password')})},
+      ],
       errors: {},
       form: this.$form.createForm(this, {name: 'sign_up'}),
     };
   },
   methods: {
+    confirmPassword(rule, value, callback) {
+      if(value && value !== this.model.password) {
+        return Promise.reject("Password does not match");
+      } else {
+        return Promise.resolve();
+      }
+    },
     submit(event) {
       event.preventDefault();
       this.form.validateFields(err => {
@@ -79,9 +89,8 @@ export default Vue.extend({
       });
     },
     signUp() {
-      AuthApi.signUp().then((res) => {
-        setAuthToken(res.auth_token);
-        setRefreshToken(res.refresh_token);
+      AuthApi.signUp(this.model).then((res) => {
+        console.log(res)
       });
     },
   },
@@ -97,7 +106,7 @@ export default Vue.extend({
 }
 
 .card {
-  max-width: 400px;
+  max-width: 440px;
 }
 
 .logo-wrapper {
@@ -110,6 +119,7 @@ export default Vue.extend({
   font-size: 24px;
   text-align: center;
   font-weight: 500;
+  margin-bottom: 12px;
 }
 
 .sign-in {
@@ -127,11 +137,7 @@ export default Vue.extend({
 
 /*::v-deep*/
 .ant-form-item {
-  margin-bottom: 0;
+  margin-bottom: 12px;
   padding-bottom: 0;
-}
-
-.ant-form > .ant-form-item {
-  margin: 12px 0;
 }
 </style>

@@ -2,7 +2,19 @@ export default  {
   message: {
     error: 'Đã xảy ra lỗi',
     success: 'Thành công',
-    required: 'Trường này không được bỏ trống',
+    firebase: {
+      'auth/too-many-requests' : 'Quyền truy cập vào tài khoản này đã tạm thời bị vô hiệu hóa do nhiều lần đăng nhập không thành công. Bạn có thể khôi phục tài khoản ngay lập tức bằng cách đặt lại mật khẩu của mình hoặc bạn có thể thử lại sau.',
+      'auth/wrong-password' : 'Mật khẩu không hợp lệ hoặc người dùng không có mật khẩu.',
+      'auth/user-not-found': 'Không tìm thấy người dùng hợp lệ với định danh đã nhập. Người dùng có thể đã bị xoá.',
+      'auth/weak-password': 'Mật khẩu nên có độ dài ít nhất 6 ký tự.',
+      'auth/email-already-in-use': 'Địa chỉ email đã được sử dụng bởi tài khoản khác.',
+
+    }
+  },
+  validation: {
+    required: '{name} không được bỏ trống',
+    matched: '{name} không khớp',
+    email: '{name} không đúng định dạng email'
   },
   text: {
     home: 'Trang chủ',
@@ -10,7 +22,6 @@ export default  {
     most_view: 'Xem nhiều nhất',
     search: 'Tìm kiếm',
     sign_in: 'Đăng nhập',
-    user_id: 'Email hoặc tên đăng nhập',
     account: 'Tài khoản',
     password: 'Mật khẩu',
     confirm: 'Xác nhận',

@@ -1,10 +1,11 @@
 import {i18n} from '@/plugins/i18n';
 
 export default {
-  user_id: [
-    {required: true, message: i18n.t('message.required')}
+  email: [
+    {required: true, message: i18n.t('validation.required', {name: i18n.t('text.email')})},
+    {type: 'email', message: i18n.t('validation.email', {name: i18n.t('text.email')})}
   ],
   password: [
-    {required: true, message: i18n.t('message.required')}
+    {required: true, message: i18n.t('validation.required', {name: i18n.t('text.password')})}
   ],
 }

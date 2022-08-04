@@ -19,7 +19,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-::v-deep .rate {
+:deep .rate {
   font-size: 16px;
 
   .ant-rate-star:not(:last-child) {
