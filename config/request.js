@@ -16,6 +16,7 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
+    console.log(process.env.VUE_APP_BASE_API)
     // do something before request is sent
     config.headers['Accept-Language'] = getLocale()
     config.headers['Authorization'] = getAuthToken()

@@ -39,7 +39,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -57,9 +58,9 @@ export default {
       {code: 'en', iso: 'en-US', file: 'en.js'},
       // {code: 'ja', iso: 'ja-JP', file: 'ja.js'},
     ],
-    defaultLocale: process.env.VUE_APP_DEFAULT_LOCALE,
+    defaultLocale: process.env.I18N_DEFAULT_LOCALE,
     vueI18n: {
-      fallbackLocale: process.env.VUE_APP_DEFAULT_LOCALE,
+      fallbackLocale: process.env.I18N_DEFAULT_LOCALE,
     },
     detectBrowserLanguage: {
       useCookie: true,

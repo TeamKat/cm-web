@@ -43,7 +43,7 @@
         <a-form-item>
           <a-button class="sign-up" type="primary" html-type="submit">{{ $t('text.sign_up') }}</a-button>
           {{ $t('text.or') + ' ' }}
-          <locale-link class="sign-in" url="/auth/sign-in">{{ $t('text.sign_in') }}</locale-link>
+          <locale-link class="sign-in" url="/sign-in">{{ $t('text.sign_in') }}</locale-link>
         </a-form-item>
       </a-form>
     </a-card>
@@ -52,7 +52,7 @@
 
 <script>
 import Vue from 'vue'
-import AuthApi from '@/api/auth'
+import FirebaseAuth from '@/api/firebase-auth'
 import SignUpRules from '@/rules/auth/sign-up'
 import Logo from "@/components/logo";
 import LocaleLink from "@/components/locale-link";
@@ -89,9 +89,7 @@ export default Vue.extend({
       });
     },
     signUp() {
-      AuthApi.signUp(this.model).then((res) => {
-        console.log(res)
-      });
+      FirebaseAuth.signUp(this.model);
     },
   },
 })

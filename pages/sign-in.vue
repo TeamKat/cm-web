@@ -27,7 +27,7 @@
           <locale-link class="forgot-password" url="">{{ $t('text.forgot_password') }}</locale-link>
           <a-button class="sign-in" type="primary" html-type="submit">{{ $t('text.sign_in') }}</a-button>
           {{ $t('text.or') + ' ' }}
-          <locale-link class="sign-up" url="/auth/sign-up">{{ $t('text.sign_up') }}</locale-link>
+          <locale-link class="sign-up" url="/sign-up">{{ $t('text.sign_up') }}</locale-link>
         </a-form-item>
       </a-form>
     </a-card>
@@ -36,7 +36,7 @@
 
 <script>
 import Vue from 'vue'
-import AuthApi from '@/api/auth'
+import FirebaseAuth from '@/api/firebase-auth'
 import SignInRules from '@/rules/auth/sign-in'
 import Logo from "@/components/logo";
 import LocaleLink from "@/components/locale-link";
@@ -61,9 +61,7 @@ export default Vue.extend({
       });
     },
     signIn() {
-      AuthApi.signIn(this.model).then((res) => {
-        console.log(res)
-      });
+      FirebaseAuth.signIn(this.model);
     },
   },
 })

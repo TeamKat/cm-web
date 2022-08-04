@@ -5,7 +5,7 @@ import {getLocale} from "@/utils/cookie";
 
 export const i18n = new VueI18n({
   locale: getLocale(),
-  fallbackLocale: process.env.VUE_APP_DEFAULT_LOCALE,
+  fallbackLocale: process.env.I18N_DEFAULT_LOCALE,
   messages: {
     'en': en,
     'vi': vi
